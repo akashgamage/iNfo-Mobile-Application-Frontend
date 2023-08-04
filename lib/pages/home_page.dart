@@ -277,11 +277,94 @@ class _HomePageState extends State<HomePage> {
 
             // 4 Department Buttons --------------------------------------------
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Container(
-                height: 300,
+                height: 400,
                 width: double.infinity,
-                color: Colors.blue,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(50, 50, 50, 50),
+                      // offset: Offset(0.0, 0.0),
+                      blurRadius: 5,
+                      // spreadRadius: 1,
+                      // inset: true,
+                    ),
+                    BoxShadow(
+                      color: Color.fromARGB(50, 50, 50, 50),
+                      // offset: Offset(0.0, 0.0),
+                      blurRadius: 5,
+                      // spreadRadius: 1,
+                      // inset: true,
+                    ),
+                  ],
+                  // gradient: LinearGradient(
+                  //   colors: [
+                  //     const Color.fromARGB(255, 255, 255, 255),
+                  //     const Color.fromARGB(255, 255, 255, 255),
+                  //     const Color.fromARGB(255, 255, 255, 255),
+                  //     const Color.fromARGB(255, 255, 255, 255),
+                  //   ],
+                  //   begin: Alignment.topLeft,
+                  //   end: Alignment.bottomRight,
+                  // ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10.0),
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: Text(
+                          'Departments',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView(
+                        scrollDirection:
+                            Axis.horizontal, // Horizontal scrolling
+                        children: [
+                          // Computer Science & Software Engineering Button
+                          _buildDepartmentButtons(
+                            imageAsset: 'assets/images/cssedepartment.png',
+                            description: 'Department of',
+                            title: 'Computer Science &\nSoftware Engineering',
+                          ),
+
+                          // Information & System Science Button
+                          _buildDepartmentButtons(
+                            imageAsset: 'assets/images/issdepartment.png',
+                            description: 'Department of',
+                            title: 'Information &\nSystem Science',
+                          ),
+
+                          // Data Science Button
+                          _buildDepartmentButtons(
+                            imageAsset: 'assets/images/dsdepartment.png',
+                            description: 'Department of',
+                            title: 'Data Science',
+                          ),
+
+                          // Network & Security Button
+                          _buildDepartmentButtons(
+                            imageAsset: 'assets/images/dnsdepartment.png',
+                            description: 'Department of',
+                            title: 'Network & Security',
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
               ),
             ),
 
@@ -352,6 +435,78 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildDepartmentButtons({
+    required String imageAsset,
+    required String title,
+    required String description,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+      child: Container(
+        width: 230,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: const Color(0xFF007AFF),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {},
+            borderRadius: BorderRadius.circular(16),
+            splashColor: const Color.fromARGB(255, 255, 255, 255),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(height: 5),
+
+                // Description and Title
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(description,
+                            style: const TextStyle(
+                              color: Colors.white,
+                            )),
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Image
+                Column(
+                  children: [
+                    Image.asset(imageAsset, width: 200, height: 200),
+                  ],
+                ),
+                const SizedBox(height: 5),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
