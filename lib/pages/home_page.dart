@@ -1,5 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:info_mobile_application/pages/Clubs/CSSE_doc.dart';
+
+import 'Clubs/CSSL_doc.dart';
+import 'Clubs/FOSS_doc.dart';
+import 'Documentations/Ply_doc.dart';
+import 'Documentations/UGC_doc.dart';
+import 'Documentations/Vic_doc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -386,7 +393,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(width: 20),
                     Expanded(
-                      child: _buildLongButton(
+                      child: _buildLongButton2(
                         imageAsset: 'assets/images/clubs_societies.png',
                         description: 'Explore\nClubs & Societies',
                         title: 'Clubs & Societies',
@@ -554,7 +561,36 @@ class _HomePageState extends State<HomePage> {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {},
+            onTap: () { //on tap function.... change this if need
+                showModalBottomSheet(
+                  //enableDrag: true, 
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                  ),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SizedBox(
+                      height: 140,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.only(
+                            bottom: 40, left: 8, right: 8, top: 40),
+                        children: [
+                          _buildButton1(context, 'UGC Approved'),
+                          _buildButton2(context,'Plymouth University'),
+                          _buildButton3(context,'Victoria University'),
+                        ],
+                      ),
+                    );
+                  },
+                );
+            },
             borderRadius: BorderRadius.circular(16),
             splashColor: const Color.fromARGB(255, 255, 255, 255),
             child: Padding(
@@ -608,4 +644,402 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+
+   Widget _buildLongButton2({
+    required String imageAsset,
+    required String title,
+    required String description,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Container(
+        width: double.infinity,
+        height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: const Color(0xFF007AFF),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+               showModalBottomSheet(
+                  //enableDrag: true, 
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                  ),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SizedBox(
+                      height: 140,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.only(
+                            bottom: 40, left: 8, right: 8, top: 40),
+                        children: [
+                          _buildButton4(context, 'CSSE Circle'),
+                          _buildButton5(context,'CSSL GenZ NSBM'),
+                          _buildButton6(context,'FOSS Community'),
+                        ],
+                      ),
+                    );
+                  },
+                );
+            },
+            borderRadius: BorderRadius.circular(16),
+            splashColor: const Color.fromARGB(255, 255, 255, 255),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                children: [
+                  // Image on the left
+                  Image.asset(
+                    imageAsset,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 20), // Space between the image and text
+
+                  // Title and Description
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          description,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Right-side arrow icon
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+
+
+
+// Bottom Sheet method for longButtons
+    void _showBottomSheet(BuildContext context, Widget contentWidget) {
+    showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return DraggableScrollableActuator(child: contentWidget);
+      },
+    );
+  }
+
+   Widget _buildButton1(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+           _showBottomSheet(context, UGCDocPage());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+
+  //Button for plymouth Approved
+
+  Widget _buildButton2(BuildContext context,String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+         _showBottomSheet(context, PlyDocPage());
+
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+
+//Button for Victoria Approved
+
+  Widget _buildButton3(BuildContext context,String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+         _showBottomSheet(context, VicDocPage());
+
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+
+   //Button for CSSE Circle
+   Widget _buildButton4(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+           _showBottomSheet(context, CSSEDoc());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+
+//Button for CCSL Circle
+   Widget _buildButton5(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+           _showBottomSheet(context, CSSLDoc());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+//Button for FOSS Community
+ Widget _buildButton6(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+           _showBottomSheet(context, FOSSDoc());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
 }
