@@ -759,6 +759,7 @@ class _HomePageState extends State<HomePage> {
 
 
 // Bottom Sheet method for longButtons
+
     void _showBottomSheet(BuildContext context, Widget contentWidget) {
     showModalBottomSheet(
       shape: const RoundedRectangleBorder(
@@ -913,6 +914,7 @@ class _HomePageState extends State<HomePage> {
 
 
    //Button for CSSE Circle
+
    Widget _buildButton4(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -957,6 +959,7 @@ class _HomePageState extends State<HomePage> {
 
 
 //Button for CCSL Circle
+
    Widget _buildButton5(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1000,6 +1003,7 @@ class _HomePageState extends State<HomePage> {
   }
 
 //Button for FOSS Community
+
  Widget _buildButton6(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
