@@ -371,10 +371,29 @@ class _HomePageState extends State<HomePage> {
             // 2 Long Buttons --------------------------------------------------
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Container(
+              child: SizedBox(
                 height: 300,
                 width: double.infinity,
-                color: Colors.blue,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: _buildLongButton(
+                        imageAsset: 'assets/images/documentation.png',
+                        description: 'Find Documentations\nfor Your Courses',
+                        title: 'Documentations',
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: _buildLongButton(
+                        imageAsset: 'assets/images/clubs_societies.png',
+                        description: 'Explore\nClubs & Societies',
+                        title: 'Clubs & Societies',
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -503,6 +522,86 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 5),
               ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLongButton({
+    required String imageAsset,
+    required String title,
+    required String description,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Container(
+        width: double.infinity,
+        height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: const Color(0xFF007AFF),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {},
+            borderRadius: BorderRadius.circular(16),
+            splashColor: const Color.fromARGB(255, 255, 255, 255),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                children: [
+                  // Image on the left
+                  Image.asset(
+                    imageAsset,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 20), // Space between the image and text
+
+                  // Title and Description
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          description,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Right-side arrow icon
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
