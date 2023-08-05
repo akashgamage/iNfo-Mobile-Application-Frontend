@@ -27,7 +27,7 @@ class CSSLDoc extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  'images/cssl.png', // Replace with your image asset path
+                  'assets/images/cssl.png', // Replace with your image asset path
                   width: 130, // Adjust the width as needed
                   height: 100, // Adjust the height as needed
                 ),
@@ -50,7 +50,7 @@ class CSSLDoc extends StatelessWidget {
               ],
             ),
             const Padding(
-              padding: EdgeInsets.only(bottom: 15,top: 2),
+              padding: EdgeInsets.only(bottom: 15, top: 2),
               child: Text.rich(
                 TextSpan(
                   children: [
@@ -64,20 +64,19 @@ class CSSLDoc extends StatelessWidget {
                         height: 2.56,
                       ),
                     ),
-                     TextSpan(
-                    text: 'N',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 1.79,
-                    ),
-                  ),
-                  
                     TextSpan(
-                      
-                      text:'SBM GenZ student chapter was established on 19th July 2023 and since we’ve been consistently working to promote professionalism among all our members under the experienced guidance of our instructor panel. Our mentorship programs connect students with experienced professionals who offer guidance, share industry insights, and provide career advice for informed career decisions and desired trajectories.',
+                      text: 'N',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w400,
+                        height: 1.79,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          'SBM GenZ student chapter was established on 19th July 2023 and since we’ve been consistently working to promote professionalism among all our members under the experienced guidance of our instructor panel. Our mentorship programs connect students with experienced professionals who offer guidance, share industry insights, and provide career advice for informed career decisions and desired trajectories.',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,

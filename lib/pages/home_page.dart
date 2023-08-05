@@ -340,31 +340,43 @@ class _HomePageState extends State<HomePage> {
                             Axis.horizontal, // Horizontal scrolling
                         children: [
                           // Computer Science & Software Engineering Button
-                          _buildDepartmentButtons(
+                          DepartmentButton(
                             imageAsset: 'assets/images/cssedepartment.png',
+                            title: 'Computer Science & Software Engineering',
                             description: 'Department of',
-                            title: 'Computer Science &\nSoftware Engineering',
+                            onTap: () {
+                              // Navigate to the related pages
+                            },
                           ),
 
                           // Information & System Science Button
-                          _buildDepartmentButtons(
+                          DepartmentButton(
                             imageAsset: 'assets/images/issdepartment.png',
+                            title: 'Information & System Science',
                             description: 'Department of',
-                            title: 'Information &\nSystem Science',
+                            onTap: () {
+                              // Navigate to the related pages
+                            },
                           ),
 
                           // Data Science Button
-                          _buildDepartmentButtons(
+                          DepartmentButton(
                             imageAsset: 'assets/images/dsdepartment.png',
+                            title: 'Data Science\n',
                             description: 'Department of',
-                            title: 'Data Science',
+                            onTap: () {
+                              // Navigate to the related pages
+                            },
                           ),
 
                           // Network & Security Button
-                          _buildDepartmentButtons(
+                          DepartmentButton(
                             imageAsset: 'assets/images/dnsdepartment.png',
+                            title: 'Network & Security\n',
                             description: 'Department of',
-                            title: 'Network & Security',
+                            onTap: () {
+                              // Navigate to the related pages
+                            },
                           ),
                         ],
                       ),
@@ -464,10 +476,539 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _buildLongButton({
+    required String imageAsset,
+    required String title,
+    required String description,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Container(
+        width: double.infinity,
+        height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: const Color(0xFF007AFF),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+              //on tap function.... change this if need
+              showModalBottomSheet(
+                //enableDrag: true,
+                isScrollControlled: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
+                context: context,
+                builder: (BuildContext context) {
+                  return SizedBox(
+                    height: 140,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(
+                          bottom: 40, left: 8, right: 8, top: 40),
+                      children: [
+                        _buildButton1(context, 'UGC Approved'),
+                        _buildButton2(context, 'Plymouth University'),
+                        _buildButton3(context, 'Victoria University'),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+            borderRadius: BorderRadius.circular(16),
+            splashColor: const Color.fromARGB(255, 255, 255, 255),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                children: [
+                  // Image on the left
+                  Image.asset(
+                    imageAsset,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 20), // Space between the image and text
+
+                  // Title and Description
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          description,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Right-side arrow icon
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLongButton2({
+    required String imageAsset,
+    required String title,
+    required String description,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Container(
+        width: double.infinity,
+        height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: const Color(0xFF007AFF),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                //enableDrag: true,
+                isScrollControlled: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
+                context: context,
+                builder: (BuildContext context) {
+                  return SizedBox(
+                    height: 140,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(
+                          bottom: 40, left: 8, right: 8, top: 40),
+                      children: [
+                        _buildButton4(context, 'CSSE Circle'),
+                        _buildButton5(context, 'CSSL GenZ NSBM'),
+                        _buildButton6(context, 'FOSS Community'),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+            borderRadius: BorderRadius.circular(16),
+            splashColor: const Color.fromARGB(255, 255, 255, 255),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                children: [
+                  // Image on the left
+                  Image.asset(
+                    imageAsset,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 20), // Space between the image and text
+
+                  // Title and Description
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          description,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Right-side arrow icon
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+// Bottom Sheet method for longButtons
+
+  void _showBottomSheet(BuildContext context, Widget contentWidget) {
+    showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return DraggableScrollableActuator(child: contentWidget);
+      },
+    );
+  }
+
+  Widget _buildButton1(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+          _showBottomSheet(context, UGCDocPage());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+  //Button for plymouth Approved
+
+  Widget _buildButton2(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+          _showBottomSheet(context, PlyDocPage());
+
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+//Button for Victoria Approved
+
+  Widget _buildButton3(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+          _showBottomSheet(context, VicDocPage());
+
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+  //Button for CSSE Circle
+
+  Widget _buildButton4(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+          _showBottomSheet(context, CSSEDoc());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+//Button for CCSL Circle
+
+  Widget _buildButton5(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+          _showBottomSheet(context, CSSLDoc());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
+//Button for FOSS Community
+
+  Widget _buildButton6(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 255, 255, 255),
+          ),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: const BorderSide(
+                color: Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 50, 128, 246),
+          ),
+        ),
+        onPressed: () {
+          _showBottomSheet(context, FOSSDoc());
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
+          // );
+        },
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 16,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DepartmentButton extends StatelessWidget {
+  final String imageAsset;
+  final String title;
+  final String description;
+  final VoidCallback onTap; // Callback for onTap behavior
+
+  const DepartmentButton({
+    required this.imageAsset,
+    required this.title,
+    required this.description,
+    required this.onTap, // Pass the onTap callback as a parameter
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildDepartmentButtons(
+      imageAsset: imageAsset,
+      title: title,
+      description: description,
+      onTap: onTap, // Pass the onTap callback to the internal widget
+    );
+  }
+
   Widget _buildDepartmentButtons({
     required String imageAsset,
     required String title,
     required String description,
+    required VoidCallback onTap, // Add the onTap callback as a parameter
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -488,7 +1029,7 @@ class _HomePageState extends State<HomePage> {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {},
+            onTap: onTap, // Use the onTap callback
             borderRadius: BorderRadius.circular(16),
             splashColor: const Color.fromARGB(255, 255, 255, 255),
             child: Column(
@@ -504,10 +1045,12 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(description,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            )),
+                        Text(
+                          description,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                         Text(
                           title,
                           style: const TextStyle(
@@ -535,515 +1078,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  Widget _buildLongButton({
-    required String imageAsset,
-    required String title,
-    required String description,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
-        width: double.infinity,
-        height: 120,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: const Color(0xFF007AFF),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, 0),
-            ),
-          ],
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () { //on tap function.... change this if need
-                showModalBottomSheet(
-                  //enableDrag: true, 
-                  isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                  ),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SizedBox(
-                      height: 140,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.only(
-                            bottom: 40, left: 8, right: 8, top: 40),
-                        children: [
-                          _buildButton1(context, 'UGC Approved'),
-                          _buildButton2(context,'Plymouth University'),
-                          _buildButton3(context,'Victoria University'),
-                        ],
-                      ),
-                    );
-                  },
-                );
-            },
-            borderRadius: BorderRadius.circular(16),
-            splashColor: const Color.fromARGB(255, 255, 255, 255),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  // Image on the left
-                  Image.asset(
-                    imageAsset,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(width: 20), // Space between the image and text
-
-                  // Title and Description
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          description,
-                          style: const TextStyle(
-                              fontSize: 16, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Right-side arrow icon
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 24,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-
-   Widget _buildLongButton2({
-    required String imageAsset,
-    required String title,
-    required String description,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
-        width: double.infinity,
-        height: 120,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: const Color(0xFF007AFF),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, 0),
-            ),
-          ],
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () {
-               showModalBottomSheet(
-                  //enableDrag: true, 
-                  isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                  ),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SizedBox(
-                      height: 140,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.only(
-                            bottom: 40, left: 8, right: 8, top: 40),
-                        children: [
-                          _buildButton4(context, 'CSSE Circle'),
-                          _buildButton5(context,'CSSL GenZ NSBM'),
-                          _buildButton6(context,'FOSS Community'),
-                        ],
-                      ),
-                    );
-                  },
-                );
-            },
-            borderRadius: BorderRadius.circular(16),
-            splashColor: const Color.fromARGB(255, 255, 255, 255),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  // Image on the left
-                  Image.asset(
-                    imageAsset,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(width: 20), // Space between the image and text
-
-                  // Title and Description
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          description,
-                          style: const TextStyle(
-                              fontSize: 16, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Right-side arrow icon
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 24,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-
-
-
-// Bottom Sheet method for longButtons
-
-    void _showBottomSheet(BuildContext context, Widget contentWidget) {
-    showModalBottomSheet(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-        ),
-      ),
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return DraggableScrollableActuator(child: contentWidget);
-      },
-    );
-  }
-
-   Widget _buildButton1(BuildContext context, String text) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 255, 255),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
-                width: 1.0,
-              ),
-            ),
-          ),
-          overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 50, 128, 246),
-          ),
-        ),
-        onPressed: () {
-           _showBottomSheet(context, UGCDocPage());
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
-          // );
-        },
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 16,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
-
-  //Button for plymouth Approved
-
-  Widget _buildButton2(BuildContext context,String text) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 255, 255),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
-                width: 1.0,
-              ),
-            ),
-          ),
-          overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 50, 128, 246),
-          ),
-        ),
-        onPressed: () {
-         _showBottomSheet(context, PlyDocPage());
-
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
-          // );
-        },
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 16,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
-
-//Button for Victoria Approved
-
-  Widget _buildButton3(BuildContext context,String text) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 255, 255),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
-                width: 1.0,
-              ),
-            ),
-          ),
-          overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 50, 128, 246),
-          ),
-        ),
-        onPressed: () {
-         _showBottomSheet(context, VicDocPage());
-
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
-          // );
-        },
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 16,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
-
-   //Button for CSSE Circle
-
-   Widget _buildButton4(BuildContext context, String text) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 255, 255),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
-                width: 1.0,
-              ),
-            ),
-          ),
-          overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 50, 128, 246),
-          ),
-        ),
-        onPressed: () {
-           _showBottomSheet(context, CSSEDoc());
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
-          // );
-        },
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 16,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
-
-//Button for CCSL Circle
-
-   Widget _buildButton5(BuildContext context, String text) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 255, 255),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
-                width: 1.0,
-              ),
-            ),
-          ),
-          overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 50, 128, 246),
-          ),
-        ),
-        onPressed: () {
-           _showBottomSheet(context, CSSLDoc());
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
-          // );
-        },
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 16,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
-//Button for FOSS Community
-
- Widget _buildButton6(BuildContext context, String text) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 255, 255),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
-                width: 1.0,
-              ),
-            ),
-          ),
-          overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 50, 128, 246),
-          ),
-        ),
-        onPressed: () {
-           _showBottomSheet(context, FOSSDoc());
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
-          // );
-        },
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontSize: 16,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
 }

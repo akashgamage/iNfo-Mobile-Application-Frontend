@@ -27,7 +27,7 @@ class FOSSDoc extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  'images/foss.png', // Replace with your image asset path
+                  'assets/images/foss.png', // Replace with your image asset path
                   width: 100, // Adjust the width as needed
                   height: 100, // Adjust the height as needed
                 ),
