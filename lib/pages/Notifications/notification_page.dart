@@ -8,6 +8,7 @@ class NotificationPage extends StatelessWidget {
     'Notification 3',
     'Notification 4',
     'Notification 5',
+    // 'Notification 6',
   ];
 
   NotificationPage({super.key});
@@ -18,13 +19,13 @@ class NotificationPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'NOTIFICATIONS',
+          'Notifications',
           style: TextStyle(
             color: Color.fromARGB(255, 0, 0, 0),
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 70, 119, 225),
+        backgroundColor: Colors.blue,
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
