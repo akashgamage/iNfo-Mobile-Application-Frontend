@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'pages/chat_page.dart';
-import 'pages/home_page.dart';
+// import 'pages/chat_page.dart';
+import 'home_page.dart';
 // import 'notifications_page.dart';
 // import 'settings_page.dart';
 
@@ -151,7 +151,7 @@ class NavBarState extends State<NavBar> {
 
   List<Widget> screens = [
     const HomePage(),
-    ChatbotPage(),
+    // ChatbotPage(),
     // const NotificationsPage(),
     // const SettingsPage(),
   ];

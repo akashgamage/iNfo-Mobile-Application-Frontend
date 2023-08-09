@@ -1,7 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:info_mobile_application/pages/home_page.dart';
+import 'package:info_mobile_application/pages/nav_bar.dart';
+// import 'package:info_mobile_application/pages/home_page.dart';
 
 void main() => runApp(
       DevicePreview(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: NavBar(),
     );
   }
 }
