@@ -243,7 +243,12 @@ class _HomePageState extends State<HomePage> {
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () {
-                                   TableExampleScreen();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const TableExampleScreen()),
+                                  );
                                 },
                                 style: ElevatedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(
@@ -740,7 +745,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         onPressed: () {
-          _showBottomSheet(context, UGCDocPage());
+          _showBottomSheet(context, const UGCDocPage());
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
@@ -784,7 +789,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         onPressed: () {
-          _showBottomSheet(context, PlyDocPage());
+          _showBottomSheet(context, const PlyDocPage());
 
           // Navigator.push(
           //   context,
@@ -829,7 +834,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         onPressed: () {
-          _showBottomSheet(context, VicDocPage());
+          _showBottomSheet(context, const VicDocPage());
 
           // Navigator.push(
           //   context,
@@ -918,7 +923,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         onPressed: () {
-          _showBottomSheet(context, CSSLDoc());
+          _showBottomSheet(context, const CSSLDoc());
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
@@ -962,7 +967,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         onPressed: () {
-          _showBottomSheet(context, FOSSDoc());
+          _showBottomSheet(context, const FOSSDoc());
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(builder: (context) => const UGCDocPage()),
