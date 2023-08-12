@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:info_mobile_application/pages/Clubs/CSSE_doc.dart';
+import 'package:info_mobile_application/pages/time_table.dart.dart';
 
 import 'Clubs/CSSL_doc.dart';
 import 'Clubs/FOSS_doc.dart';
@@ -241,7 +242,9 @@ class _HomePageState extends State<HomePage> {
                             child: SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                   TableExampleScreen();
+                                },
                                 style: ElevatedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 20.0,

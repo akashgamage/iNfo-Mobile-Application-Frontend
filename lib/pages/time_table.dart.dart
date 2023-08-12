@@ -17,7 +17,7 @@ class TableExampleScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-        body: const TableExample(),
+        body:  TableExample(),
       ),
     );
   }
