@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:info_mobile_application/pages/nav_bar.dart';
 import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -48,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         labelText: "Email Address",
         hintText: 'hello@example.com',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
@@ -69,9 +70,9 @@ class _LoginPageState extends State<LoginPage> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         labelText: "Password",
-        hintText: '●●●●●●●●●●●●●●',
+        hintText: '••••••••••••••',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         suffixIcon: IconButton(
           onPressed: () {
@@ -94,15 +95,22 @@ class _LoginPageState extends State<LoginPage> {
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: _handleSignUp,
+        onPressed: () {
+          if (_formkey.currentState!.validate()) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const NavBar()),
+            );
+          }
+        },
         child: const Text(
           "Log In",
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 20,
             fontFamily: 'Inter',
             color: Colors.white,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -143,12 +151,12 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     const SizedBox(
-                      width: 312,
+                      width: 400,
                       child: Text(
                         'Login',
                         style: TextStyle(
                           color: Color(0xFF191919),
-                          fontSize: 28,
+                          fontSize: 40,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
                           height: 2,
@@ -156,25 +164,26 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(
-                      width: 312,
+                      width: 400,
+                      height: 40,
                       child: Text.rich(
                         TextSpan(
                           children: [
                             TextSpan(
-                              text: 'Welcome back to the ',
+                              text: 'Welcome to the ',
                               style: TextStyle(
                                 color: Color(0xFF555555),
-                                fontSize: 18,
+                                fontSize: 24,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 height: 2,
                               ),
                             ),
                             TextSpan(
-                              text: 'iNfo',
+                              text: ' iNfo',
                               style: TextStyle(
                                 color: Color(0xFF555555),
-                                fontSize: 18,
+                                fontSize: 24,
                                 fontStyle: FontStyle.italic,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w700,
@@ -185,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 45),
+                    const SizedBox(height: 40),
                     emailField,
                     const SizedBox(height: 35),
                     passwordField,
@@ -199,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 35),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: [
                         const Text("Don't have an account?"),
                         GestureDetector(
                           onTap: () {
@@ -210,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                             );
                           },
                           child: const Text(
-                            "Sign Up",
+                            " Sign Up",
                             style: TextStyle(
                               color: Color(0xFF007AFF),
                               fontFamily: 'Inter',

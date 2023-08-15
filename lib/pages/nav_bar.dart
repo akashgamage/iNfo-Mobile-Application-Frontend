@@ -5,8 +5,6 @@ import 'Notifications/notification_page.dart';
 import 'chat_page.dart';
 import 'home_page.dart';
 import 'settings_page.dart';
-// import 'notifications_page.dart';
-// import 'settings_page.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});

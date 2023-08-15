@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loginpage/pages/login_page.dart';
+
+import 'login_page.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _SignUpState extends State<SignUp> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         labelText: "User Name",
         hintText: 'admin',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
@@ -81,7 +82,7 @@ class _SignUpState extends State<SignUp> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         labelText: "Email Address",
         hintText: 'hello@example.com',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
@@ -102,9 +103,9 @@ class _SignUpState extends State<SignUp> {
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         labelText: "Password",
-        hintText: '●●●●●●●●●●●●●●',
+        hintText: '••••••••••••••',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         suffixIcon: IconButton(
             onPressed: () {
@@ -130,10 +131,10 @@ class _SignUpState extends State<SignUp> {
           "Sign Up",
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 20,
             fontFamily: 'Inter',
             color: Colors.white,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -160,12 +161,12 @@ class _SignUpState extends State<SignUp> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     const SizedBox(
-                      width: 312,
+                      width: 400,
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
                           color: Color(0xFF191919),
-                          fontSize: 28,
+                          fontSize: 40,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
                           height: 2,
@@ -173,7 +174,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                     const SizedBox(
-                      width: 312,
+                      width: 400,
+                      height: 40,
                       child: Text.rich(
                         TextSpan(
                           children: [
@@ -181,17 +183,17 @@ class _SignUpState extends State<SignUp> {
                               text: 'Welcome to the ',
                               style: TextStyle(
                                 color: Color(0xFF555555),
-                                fontSize: 18,
+                                fontSize: 24,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 height: 2,
                               ),
                             ),
                             TextSpan(
-                              text: 'iNfo',
+                              text: ' iNfo',
                               style: TextStyle(
                                 color: Color(0xFF555555),
-                                fontSize: 18,
+                                fontSize: 24,
                                 fontStyle: FontStyle.italic,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w700,
@@ -202,7 +204,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 45),
+                    const SizedBox(height: 40),
                     usernameField,
                     const SizedBox(height: 40),
                     emailField,
@@ -211,23 +213,29 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(height: 40),
                     signupButton,
                     const SizedBox(height: 30),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginPage()),
-                        );
-                      },
-                      child: const Text(
-                        "Log In",
-                        style: TextStyle(
-                          color: Color(0xFF007AFF),
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Already have an account?"),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()),
+                            );
+                          },
+                          child: const Text(
+                            " Log In",
+                            style: TextStyle(
+                              color: Color(0xFF007AFF),
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
