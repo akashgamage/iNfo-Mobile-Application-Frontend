@@ -291,178 +291,178 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // 4 Department Buttons --------------------------------------------
-            
-                //Info cards
-                class InfoCard extends StatelessWidget {
-  final String imagePath;
-  final String description;
-  final String additionalText;
 
-  const InfoCard({
-    super.key,
-    required this.imagePath,
-    required this.description,
-    required this.additionalText,
-  });
+            //Info cards
+//                 class InfoCard extends StatelessWidget {
+//   final String imagePath;
+//   final String description;
+//   final String additionalText;
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: const Color.fromRGBO(218, 215, 255, 0.50),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(imagePath),
-                  radius: 30,
-                ),
-                const SizedBox(width: 16.0),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        description,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 8.0),
-                      Text(
-                        additionalText,
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Add your button action here.
-                  },
-                  child: const Text('Email'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-},
+//   const InfoCard({
+//     super.key,
+//     required this.imagePath,
+//     required this.description,
+//     required this.additionalText,
+//   });
 
-             //Bottom card popup
-             class BottomCardPopup extends StatelessWidget {
-  final String imagePath;
-  final String description;
-  final String additionalText;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       color: const Color.fromRGBO(218, 215, 255, 0.50),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(12.0),
+//       ),
+//       child: Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: Column(
+//           children: [
+//             Row(
+//               children: [
+//                 CircleAvatar(
+//                   backgroundImage: AssetImage(imagePath),
+//                   radius: 30,
+//                 ),
+//                 const SizedBox(width: 16.0),
+//                 Expanded(
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text(
+//                         description,
+//                         style: const TextStyle(fontSize: 16),
+//                       ),
+//                       const SizedBox(height: 8.0),
+//                       Text(
+//                         additionalText,
+//                         style: const TextStyle(fontSize: 14),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 ElevatedButton(
+//                   onPressed: () {
+//                     // Add your button action here.
+//                   },
+//                   child: const Text('Email'),
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// },
 
-  const BottomCardPopup({
-    super.key,
-    required this.imagePath,
-    required this.description,
-    required this.additionalText,
-  });
+//              //Bottom card popup
+//              class BottomCardPopup extends StatelessWidget {
+//   final String imagePath;
+//   final String description;
+//   final String additionalText;
 
-  @override
-  Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
+//   const BottomCardPopup({
+//     super.key,
+//     required this.imagePath,
+//     required this.description,
+//     required this.additionalText,
+//   });
 
-    return SingleChildScrollView(
-      // Wrap the content in SingleChildScrollView
-      child: Container(
-        width: screenwidth * 0.5,
-        padding: const EdgeInsets.all(16.0),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24.0),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Heading Image
-              Image.asset(
-                imagePath,
-                fit: BoxFit.cover,
-              ),
-              const SizedBox(height: 8.0),
-              // Info Card
-              _buildInfoCard(
-                description: description,
-                additionalText: additionalText,
-              ),
-              const SizedBox(height: 16.0),
-              /*
-              // Close Button
-              ElevatedButton(
-                onPressed: () {
-                  // To close the popup on button click.
-                  Navigator.of(context).pop();
-                },
-                child: const Text('Close'),
-              ),
-              */
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     double screenwidth = MediaQuery.of(context).size.width;
 
-  Widget _buildInfoCard({
-    required String description,
-    required String additionalText,
-  }) {
-    return Card(
-      color: const Color.fromRGBO(218, 215, 255, 0.50),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(imagePath),
-                  radius: 30,
-                ),
-                const SizedBox(width: 16.0),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        description,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 8.0),
-                      Text(
-                        additionalText,
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Add button action here.
-                  },
-                  child: const Text('Email'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-},
+//     return SingleChildScrollView(
+//       // Wrap the content in SingleChildScrollView
+//       child: Container(
+//         width: screenwidth * 0.5,
+//         padding: const EdgeInsets.all(16.0),
+//         child: Card(
+//           shape: RoundedRectangleBorder(
+//             borderRadius: BorderRadius.circular(24.0),
+//           ),
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             crossAxisAlignment: CrossAxisAlignment.stretch,
+//             children: [
+//               // Heading Image
+//               Image.asset(
+//                 imagePath,
+//                 fit: BoxFit.cover,
+//               ),
+//               const SizedBox(height: 8.0),
+//               // Info Card
+//               _buildInfoCard(
+//                 description: description,
+//                 additionalText: additionalText,
+//               ),
+//               const SizedBox(height: 16.0),
+//               /*
+//               // Close Button
+//               ElevatedButton(
+//                 onPressed: () {
+//                   // To close the popup on button click.
+//                   Navigator.of(context).pop();
+//                 },
+//                 child: const Text('Close'),
+//               ),
+//               */
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget _buildInfoCard({
+//     required String description,
+//     required String additionalText,
+//   }) {
+//     return Card(
+//       color: const Color.fromRGBO(218, 215, 255, 0.50),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(12.0),
+//       ),
+//       child: Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: Column(
+//           children: [
+//             Row(
+//               children: [
+//                 CircleAvatar(
+//                   backgroundImage: AssetImage(imagePath),
+//                   radius: 30,
+//                 ),
+//                 const SizedBox(width: 16.0),
+//                 Expanded(
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text(
+//                         description,
+//                         style: const TextStyle(fontSize: 16),
+//                       ),
+//                       const SizedBox(height: 8.0),
+//                       Text(
+//                         additionalText,
+//                         style: const TextStyle(fontSize: 14),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 ElevatedButton(
+//                   onPressed: () {
+//                     // Add button action here.
+//                   },
+//                   child: const Text('Email'),
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// },
 
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
@@ -515,9 +515,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                
-
-
                     Expanded(
                       child: ListView(
                         scrollDirection:
@@ -530,84 +527,83 @@ class _HomePageState extends State<HomePage> {
                             description: 'Department of',
                             onTap: () {
                               // Navigate to the related pages
-                              class CSSE extends StatelessWidget {
-  const CSSE({super.key});
+//                               class CSSE extends StatelessWidget {
+//   const CSSE({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        // Wrap the content in SingleChildScrollView
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Heading Image
-                Image.asset(
-                  'assets/CSSE/CSSE.jpg',
-                  fit: BoxFit.cover,
-                  height: 150,
-                  width: 150,
-                ),
-                const SizedBox(height: 8.0),
-                // Info Cards
-                ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: const [
-                    InfoCard(
-                      imagePath: 'assets/CSSE/dean-foc.jpg',
-                      description: 'Dr. Rasika Ranaweera',
-                      additionalText: 'Dean - Faculty of Computing',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/CSSE/ms.pavithra.jpg',
-                      description: 'Ms. Pavithra Subhashini',
-                      additionalText: 'Head / Senior Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/CSSE/mr.gayan.jpg',
-                      description: 'Mr.Gayan Perera',
-                      additionalText: 'Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/CSSE/ms.dulanjali.jpg',
-                      description: 'Ms. Dulanjali Wijesekara',
-                      additionalText: 'Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/CSSE/ms.hirushi.jpg',
-                      description: 'Ms. Hirushi Dilpriya',
-                      additionalText: 'Temporary Lecturer',
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16.0),
-                // Close Button
-                /*
-                ElevatedButton(
-                  onPressed: () {
-                    // To close the popup on button click.
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Close'),
-                ),
-                */
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SingleChildScrollView(
+//         // Wrap the content in SingleChildScrollView
+//         child: Padding(
+//           padding: const EdgeInsets.all(16.0),
+//           child: Card(
+//             shape: RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(24.0),
+//             ),
+//             child: Column(
+//               mainAxisSize: MainAxisSize.min,
+//               crossAxisAlignment: CrossAxisAlignment.stretch,
+//               children: [
+//                 // Heading Image
+//                 Image.asset(
+//                   'assets/CSSE/CSSE.jpg',
+//                   fit: BoxFit.cover,
+//                   height: 150,
+//                   width: 150,
+//                 ),
+//                 const SizedBox(height: 8.0),
+//                 // Info Cards
+//                 ListView(
+//                   shrinkWrap: true,
+//                   physics: const NeverScrollableScrollPhysics(),
+//                   children: const [
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/dean-foc.jpg',
+//                       description: 'Dr. Rasika Ranaweera',
+//                       additionalText: 'Dean - Faculty of Computing',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/ms.pavithra.jpg',
+//                       description: 'Ms. Pavithra Subhashini',
+//                       additionalText: 'Head / Senior Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/mr.gayan.jpg',
+//                       description: 'Mr.Gayan Perera',
+//                       additionalText: 'Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/ms.dulanjali.jpg',
+//                       description: 'Ms. Dulanjali Wijesekara',
+//                       additionalText: 'Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/ms.hirushi.jpg',
+//                       description: 'Ms. Hirushi Dilpriya',
+//                       additionalText: 'Temporary Lecturer',
+//                     ),
+//                   ],
+//                 ),
+//                 const SizedBox(height: 16.0),
+//                 // Close Button
+//                 /*
+//                 ElevatedButton(
+//                   onPressed: () {
+//                     // To close the popup on button click.
+//                     Navigator.of(context).pop();
+//                   },
+//                   child: const Text('Close'),
+//                 ),
+//                 */
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
                             },
                           ),
 
@@ -618,78 +614,77 @@ class _HomePageState extends State<HomePage> {
                             description: 'Department of',
                             onTap: () {
                               // Navigate to the related pages
-                              class ISS extends StatelessWidget {
-  const ISS({super.key});
+//                               class ISS extends StatelessWidget {
+//   const ISS({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        // Wrap the content in SingleChildScrollView
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Heading Image
-                Image.asset(
-                  'assets/ISS/ISS.jpg',
-                  fit: BoxFit.cover,
-                  height: 170,
-                  width: 150,
-                ),
-                const SizedBox(height: 8.0),
-                // Info Cards
-                ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: const [
-                    InfoCard(
-                      imagePath: 'assets/CSSE/dean-foc.jpg',
-                      description: 'Dr. Rasika Ranaweera',
-                      additionalText: 'Dean - Faculty of Computing',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/ISS/mr.shafraz.jpg',
-                      description: 'Dr. Mohamed Shafraz',
-                      additionalText: 'Head / Senior Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/ISS/mr.naji.jpg',
-                      description: 'Mr. Naji Saravanabavan',
-                      additionalText: 'Senior Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/ISS/ms.chalani.jpg',
-                      description: 'Ms. Chalani Oruthotaarachchi',
-                      additionalText: 'Senior Lecturer',
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16.0),
-                // Close Button
-                /*ElevatedButton(
-                  onPressed: () {
-                    // To close the popup on button click.
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Close'),
-                ),
-                */
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SingleChildScrollView(
+//         // Wrap the content in SingleChildScrollView
+//         child: Padding(
+//           padding: const EdgeInsets.all(16.0),
+//           child: Card(
+//             shape: RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(24.0),
+//             ),
+//             child: Column(
+//               mainAxisSize: MainAxisSize.min,
+//               crossAxisAlignment: CrossAxisAlignment.stretch,
+//               children: [
+//                 // Heading Image
+//                 Image.asset(
+//                   'assets/ISS/ISS.jpg',
+//                   fit: BoxFit.cover,
+//                   height: 170,
+//                   width: 150,
+//                 ),
+//                 const SizedBox(height: 8.0),
+//                 // Info Cards
+//                 ListView(
+//                   shrinkWrap: true,
+//                   physics: const NeverScrollableScrollPhysics(),
+//                   children: const [
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/dean-foc.jpg',
+//                       description: 'Dr. Rasika Ranaweera',
+//                       additionalText: 'Dean - Faculty of Computing',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/ISS/mr.shafraz.jpg',
+//                       description: 'Dr. Mohamed Shafraz',
+//                       additionalText: 'Head / Senior Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/ISS/mr.naji.jpg',
+//                       description: 'Mr. Naji Saravanabavan',
+//                       additionalText: 'Senior Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/ISS/ms.chalani.jpg',
+//                       description: 'Ms. Chalani Oruthotaarachchi',
+//                       additionalText: 'Senior Lecturer',
+//                     ),
+//                   ],
+//                 ),
+//                 const SizedBox(height: 16.0),
+//                 // Close Button
+//                 /*ElevatedButton(
+//                   onPressed: () {
+//                     // To close the popup on button click.
+//                     Navigator.of(context).pop();
+//                   },
+//                   child: const Text('Close'),
+//                 ),
+//                 */
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
                             },
                           ),
 
@@ -700,79 +695,78 @@ class _HomePageState extends State<HomePage> {
                             description: 'Department of',
                             onTap: () {
                               // Navigate to the related pages
-                              class DS extends StatelessWidget {
-  const DS({super.key});
+//                               class DS extends StatelessWidget {
+//   const DS({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        // Wrap the content in SingleChildScrollView
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Heading Image
-                Image.asset(
-                  'assets/DS/DS.jpg',
-                  fit: BoxFit.cover,
-                  height: 210,
-                  width: 150,
-                ),
-                const SizedBox(height: 8.0),
-                // Info Cards
-                ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: const [
-                    InfoCard(
-                      imagePath: 'assets/CSSE/dean-foc.jpg',
-                      description: 'Dr. Rasika Ranaweera',
-                      additionalText: 'Dean - Faculty of Computing',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/DS/mr.pramudya.jpg',
-                      description: 'Mr. Pramudya Thilakarathne',
-                      additionalText: 'Head / Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/DS/dr.chaminda.jpg',
-                      description: 'Dr. Chaminda Wijesinghe',
-                      additionalText: 'Senior Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/DS/ms.nethmi.jpg',
-                      description: 'Ms. Nethmi Weerasingha',
-                      additionalText: 'Lecturer',
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16.0),
-                // Close Button
-                /*
-                ElevatedButton(
-                  onPressed: () {
-                    // To close the popup on button click.
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Close'),
-                ),
-                */
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SingleChildScrollView(
+//         // Wrap the content in SingleChildScrollView
+//         child: Padding(
+//           padding: const EdgeInsets.all(16.0),
+//           child: Card(
+//             shape: RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(24.0),
+//             ),
+//             child: Column(
+//               mainAxisSize: MainAxisSize.min,
+//               crossAxisAlignment: CrossAxisAlignment.stretch,
+//               children: [
+//                 // Heading Image
+//                 Image.asset(
+//                   'assets/DS/DS.jpg',
+//                   fit: BoxFit.cover,
+//                   height: 210,
+//                   width: 150,
+//                 ),
+//                 const SizedBox(height: 8.0),
+//                 // Info Cards
+//                 ListView(
+//                   shrinkWrap: true,
+//                   physics: const NeverScrollableScrollPhysics(),
+//                   children: const [
+//                     InfoCard(
+//                       imagePath: 'assets/CSSE/dean-foc.jpg',
+//                       description: 'Dr. Rasika Ranaweera',
+//                       additionalText: 'Dean - Faculty of Computing',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/DS/mr.pramudya.jpg',
+//                       description: 'Mr. Pramudya Thilakarathne',
+//                       additionalText: 'Head / Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/DS/dr.chaminda.jpg',
+//                       description: 'Dr. Chaminda Wijesinghe',
+//                       additionalText: 'Senior Lecturer',
+//                     ),
+//                     InfoCard(
+//                       imagePath: 'assets/DS/ms.nethmi.jpg',
+//                       description: 'Ms. Nethmi Weerasingha',
+//                       additionalText: 'Lecturer',
+//                     ),
+//                   ],
+//                 ),
+//                 const SizedBox(height: 16.0),
+//                 // Close Button
+//                 /*
+//                 ElevatedButton(
+//                   onPressed: () {
+//                     // To close the popup on button click.
+//                     Navigator.of(context).pop();
+//                   },
+//                   child: const Text('Close'),
+//                 ),
+//                 */
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
                             },
                           ),
 
