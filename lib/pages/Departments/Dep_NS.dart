@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:departments1/pages/info_card.dart';
+
+import 'info_card.dart';
+
 
 class NS extends StatelessWidget {
   const NS({super.key});

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:departments1/pages/info_card.dart';
 
-class DS extends StatelessWidget {
-  const DS({super.key});
+
+import 'info_card.dart';
+
+class CSSE extends StatelessWidget {
+  const CSSE({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,9 @@ class DS extends StatelessWidget {
               children: [
                 // Heading Image
                 Image.asset(
-                  'assets/DS/DS.jpg',
+                  'assets/CSSE/CSSE.jpg',
                   fit: BoxFit.cover,
-                  height: 210,
+                  height: 150,
                   width: 150,
                 ),
                 const SizedBox(height: 8.0),
@@ -38,19 +40,24 @@ class DS extends StatelessWidget {
                       additionalText: 'Dean - Faculty of Computing',
                     ),
                     InfoCard(
-                      imagePath: 'assets/DS/mr.pramudya.jpg',
-                      description: 'Mr. Pramudya Thilakarathne',
-                      additionalText: 'Head / Lecturer',
+                      imagePath: 'assets/CSSE/ms.pavithra.jpg',
+                      description: 'Ms. Pavithra Subhashini',
+                      additionalText: 'Head / Senior Lecturer',
                     ),
                     InfoCard(
-                      imagePath: 'assets/DS/dr.chaminda.jpg',
-                      description: 'Dr. Chaminda Wijesinghe',
-                      additionalText: 'Senior Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/DS/ms.nethmi.jpg',
-                      description: 'Ms. Nethmi Weerasingha',
+                      imagePath: 'assets/CSSE/mr.gayan.jpg',
+                      description: 'Mr.Gayan Perera',
                       additionalText: 'Lecturer',
+                    ),
+                    InfoCard(
+                      imagePath: 'assets/CSSE/ms.dulanjali.jpg',
+                      description: 'Ms. Dulanjali Wijesekara',
+                      additionalText: 'Lecturer',
+                    ),
+                    InfoCard(
+                      imagePath: 'assets/CSSE/ms.hirushi.jpg',
+                      description: 'Ms. Hirushi Dilpriya',
+                      additionalText: 'Temporary Lecturer',
                     ),
                   ],
                 ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:departments1/pages/info_card.dart';
 
-class ISS extends StatelessWidget {
-  const ISS({super.key});
+import 'info_card.dart';
+
+
+class DS extends StatelessWidget {
+  const DS({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,9 @@ class ISS extends StatelessWidget {
               children: [
                 // Heading Image
                 Image.asset(
-                  'assets/ISS/ISS.jpg',
+                  'assets/DS/DS.jpg',
                   fit: BoxFit.cover,
-                  height: 170,
+                  height: 210,
                   width: 150,
                 ),
                 const SizedBox(height: 8.0),
@@ -38,25 +40,26 @@ class ISS extends StatelessWidget {
                       additionalText: 'Dean - Faculty of Computing',
                     ),
                     InfoCard(
-                      imagePath: 'assets/ISS/mr.shafraz.jpg',
-                      description: 'Dr. Mohamed Shafraz',
-                      additionalText: 'Head / Senior Lecturer',
+                      imagePath: 'assets/DS/mr.pramudya.jpg',
+                      description: 'Mr. Pramudya Thilakarathne',
+                      additionalText: 'Head / Lecturer',
                     ),
                     InfoCard(
-                      imagePath: 'assets/ISS/mr.naji.jpg',
-                      description: 'Mr. Naji Saravanabavan',
+                      imagePath: 'assets/DS/dr.chaminda.jpg',
+                      description: 'Dr. Chaminda Wijesinghe',
                       additionalText: 'Senior Lecturer',
                     ),
                     InfoCard(
-                      imagePath: 'assets/ISS/ms.chalani.jpg',
-                      description: 'Ms. Chalani Oruthotaarachchi',
-                      additionalText: 'Senior Lecturer',
+                      imagePath: 'assets/DS/ms.nethmi.jpg',
+                      description: 'Ms. Nethmi Weerasingha',
+                      additionalText: 'Lecturer',
                     ),
                   ],
                 ),
                 const SizedBox(height: 16.0),
                 // Close Button
-                /*ElevatedButton(
+                /*
+                ElevatedButton(
                   onPressed: () {
                     // To close the popup on button click.
                     Navigator.of(context).pop();

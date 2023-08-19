@@ -68,6 +68,29 @@ flutter:
     - assets/icons/
     - assets/images/Login_In.png
 
+    - assets/CSSE/CSSE.jpg
+    - assets/CSSE/dean-foc.jpg
+    - assets/CSSE/ms.pavithra.jpg
+    - assets/CSSE/mr.gayan.jpg
+    - assets/CSSE/ms.dulanjali.jpg
+    - assets/CSSE/ms.hirushi.jpg
+
+    - assets/ISS/ISS.jpg
+    - assets/ISS/mr.shafraz.jpg
+    - assets/ISS/mr.naji.jpg
+    - assets/ISS/ms.chalani.jpg
+
+    - assets/NS/NS.jpg
+    - assets/NS/mr.chamindra.jpg
+    - assets/NS/mr.chamara.jpg
+    - assets/NS/mr.isuru.jpg
+    - assets/NS/mr.dilhara.jpg
+
+    - assets/DS/DS.jpg
+    - assets/DS/mr.pramudya.jpg
+    - assets/DS/dr.chaminda.jpg
+    - assets/DS/ms.nethmi.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:departments1/pages/info_card.dart';
 
-class CSSE extends StatelessWidget {
-  const CSSE({super.key});
+import 'info_card.dart';
+
+
+class ISS extends StatelessWidget {
+  const ISS({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,9 @@ class CSSE extends StatelessWidget {
               children: [
                 // Heading Image
                 Image.asset(
-                  'assets/CSSE/CSSE.jpg',
+                  'assets/ISS/ISS.jpg',
                   fit: BoxFit.cover,
-                  height: 150,
+                  height: 170,
                   width: 150,
                 ),
                 const SizedBox(height: 8.0),
@@ -38,31 +40,25 @@ class CSSE extends StatelessWidget {
                       additionalText: 'Dean - Faculty of Computing',
                     ),
                     InfoCard(
-                      imagePath: 'assets/CSSE/ms.pavithra.jpg',
-                      description: 'Ms. Pavithra Subhashini',
+                      imagePath: 'assets/ISS/mr.shafraz.jpg',
+                      description: 'Dr. Mohamed Shafraz',
                       additionalText: 'Head / Senior Lecturer',
                     ),
                     InfoCard(
-                      imagePath: 'assets/CSSE/mr.gayan.jpg',
-                      description: 'Mr.Gayan Perera',
-                      additionalText: 'Lecturer',
+                      imagePath: 'assets/ISS/mr.naji.jpg',
+                      description: 'Mr. Naji Saravanabavan',
+                      additionalText: 'Senior Lecturer',
                     ),
                     InfoCard(
-                      imagePath: 'assets/CSSE/ms.dulanjali.jpg',
-                      description: 'Ms. Dulanjali Wijesekara',
-                      additionalText: 'Lecturer',
-                    ),
-                    InfoCard(
-                      imagePath: 'assets/CSSE/ms.hirushi.jpg',
-                      description: 'Ms. Hirushi Dilpriya',
-                      additionalText: 'Temporary Lecturer',
+                      imagePath: 'assets/ISS/ms.chalani.jpg',
+                      description: 'Ms. Chalani Oruthotaarachchi',
+                      additionalText: 'Senior Lecturer',
                     ),
                   ],
                 ),
                 const SizedBox(height: 16.0),
                 // Close Button
-                /*
-                ElevatedButton(
+                /*ElevatedButton(
                   onPressed: () {
                     // To close the popup on button click.
                     Navigator.of(context).pop();
