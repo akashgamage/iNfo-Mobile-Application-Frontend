@@ -38,7 +38,6 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: SizedBox(
-                height: 278,
                 width: double.infinity,
                 child: Column(
                   children: [
@@ -122,7 +121,6 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Container(
-                height: 340,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
@@ -204,90 +202,81 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(height: 20),
 
                       // Degree Program Dropdown
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: _buildDropdown(
-                                label: 'Degree Program',
-                                value: _selectedDegreeProgram,
-                                items: [
-                                  'Select',
-                                  'BSc (Honours) in Data Science',
-                                  'BSc (Hons) Computer Networks',
-                                  'BSc (Hons) Computer Security',
-                                  'Bachelor of Information Technology\n(Major in Cyber Security)',
-                                  'BSc (Hons) Computer Science',
-                                  'BSc (Hons) Software Engineering',
-                                  'BSc (Hons) Technology Management   ',
-                                  'BSc in Management Information\nSystems (Special)',
-                                  'Foundation Programme for\nBachelors Degree',
-                                ],
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    _selectedDegreeProgram = newValue ??
-                                        'Select'; // Default value if null
-                                  });
-                                },
-                              ),
-                            ),
+                      Center(
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: _buildDropdown(
+                            label: 'Degree Program',
+                            value: _selectedDegreeProgram,
+                            items: [
+                              'Select',
+                              'BSc (Honours) in Data Science',
+                              'BSc (Hons) Computer Networks',
+                              'BSc (Hons) Computer Security',
+                              'Bachelor of Information Technology\n(Major in Cyber Security)',
+                              'BSc (Hons) Computer Science',
+                              'BSc (Hons) Software Engineering',
+                              'BSc (Hons) Technology Management   ',
+                              'BSc in Management Information\nSystems (Special)',
+                              'Foundation Programme for\nBachelors Degree',
+                            ],
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                _selectedDegreeProgram = newValue ??
+                                    'Select'; // Default value if null
+                              });
+                            },
                           ),
-                        ],
+                        ),
                       ),
 
                       const SizedBox(height: 20),
 
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const TableExampleScreen()),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0,
-                                    vertical: 16.0,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  backgroundColor: const Color(0xFF007AFF),
-                                ),
-                                child: const Row(
-                                  // Add a Row to display icon and text side by side
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      // Search icon
-                                      Icons.search,
-                                      color: Colors.white,
-                                      size: 20,
-                                    ),
-                                    SizedBox(
-                                        width:
-                                            8), // Space between icon and text
-                                    Text(
-                                      'Search',
-                                      style: TextStyle(fontSize: 16.0),
-                                    ),
-                                  ],
-                                ),
+                      Center(
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const TableExampleScreen()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0,
+                                vertical: 16.0,
                               ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              backgroundColor: const Color(0xFF007AFF),
+                            ),
+                            child: const Row(
+                              // Add a Row to display icon and text side by side
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  // Search icon
+                                  Icons.search,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                SizedBox(
+                                    width: 16), // Space between icon and text
+                                Text(
+                                  'Search',
+                                  style: TextStyle(fontSize: 16.0),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        ),
                       ),
+
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -477,38 +466,40 @@ class _HomePageState extends State<HomePage> {
     required List<String> items,
     required void Function(String?) onChanged,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Container(
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.grey),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: DropdownButton<String>(
-              value: value,
-              onChanged: onChanged,
-              items: items.map<DropdownMenuItem<String>>((String item) {
-                return DropdownMenuItem<String>(
-                  value: item,
-                  child: Text(item),
-                );
-              }).toList(),
+    return FittedBox(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          Container(
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: DropdownButton<String>(
+                value: value,
+                onChanged: onChanged,
+                items: items.map<DropdownMenuItem<String>>((String item) {
+                  return DropdownMenuItem<String>(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

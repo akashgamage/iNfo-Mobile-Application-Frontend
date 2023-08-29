@@ -140,7 +140,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
             height: 24,
             width: 24,
           ),
-          SizedBox(width: 8),
+          SizedBox(width: 16),
           Text(
             'iNfo',
             style: TextStyle(
@@ -194,16 +194,16 @@ class _ChatbotPageState extends State<ChatbotPage> {
         borderRadius: BorderRadius.circular(10.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.1),
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 3),
           ),
         ],
       ),
-      margin: const EdgeInsets.all(8.0),
-      padding:
-          const EdgeInsets.symmetric(horizontal: 8.0), // Add horizontal padding
+      margin: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: 16.0), // Add horizontal padding
       child: Row(
         children: [
           Flexible(
@@ -221,8 +221,8 @@ class _ChatbotPageState extends State<ChatbotPage> {
             onPressed: () => _sendMessage(_textController.text),
             icon: Image.asset(
               'assets/send_inactive.png',
-              height: 24,
-              width: 24,
+              height: 16,
+              width: 16,
             ),
           )
         ],
@@ -233,8 +233,4 @@ class _ChatbotPageState extends State<ChatbotPage> {
   String _formatTimestamp(DateTime timestamp) {
     return '${timestamp.hour.toString().padLeft(2, '0')}:${timestamp.minute.toString().padLeft(2, '0')}';
   }
-}
-
-void main() {
-  runApp(MaterialApp(home: ChatbotPage()));
 }
