@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 import 'package:info_mobile_application/pages/speech_bubble.dart';
 
@@ -18,13 +16,15 @@ class ChatMessage {
 }
 
 class ChatbotPage extends StatefulWidget {
+  const ChatbotPage({super.key});
+
   @override
   _ChatbotPageState createState() => _ChatbotPageState();
 }
 
 class _ChatbotPageState extends State<ChatbotPage> {
   final TextEditingController _textController = TextEditingController();
-  List<ChatMessage> _messages = [];
+  final List<ChatMessage> _messages = [];
 
   Future<void> _sendMessage(String message) async {
     _textController.clear();
@@ -36,7 +36,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
       ));
     });
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         // Mock bot response
         String botResponse = _generateMockBotResponse(message);
@@ -74,7 +74,41 @@ class _ChatbotPageState extends State<ChatbotPage> {
     } else if (userMessage.toLowerCase().contains('how are you')) {
       return "I'm just a bot, but I'm here to help!";
     } else if (userMessage.toLowerCase().contains('what is your name')) {
-      return "I'm ChatBot, your helpful virtual assistant.";
+      return "I'm iNfo chatbot!";
+    } else if (userMessage.contains("admissions")) {
+      return "Our admissions office is open from Monday to Friday, 9 AM to 5 PM.";
+    } else if (userMessage.contains("courses")) {
+      return "We offer a wide range of undergraduate and graduate courses. You can find more information on our website.";
+    } else if (userMessage.contains("tuition")) {
+      return "Tuition fees vary depending on the program. You can check the tuition fees on our website.";
+    } else if (userMessage.contains("application process")) {
+      return "The application process involves filling out an online application form and submitting the required documents.";
+    } else if (userMessage.contains("scholarships")) {
+      return "We offer various scholarships for eligible students. You can find more details on our scholarship programs on our website.";
+    } else if (userMessage.contains("campus tours")) {
+      return "We offer campus tours every week. You can schedule a tour on our website.";
+    } else if (userMessage.contains("academic calendar")) {
+      return "Our academic calendar can be found on our website, which includes important dates for the semester.";
+    } else if (userMessage.contains("contact information")) {
+      return "You can contact our university at contact@university.edu or call us at +1-123-456-7890.";
+    } else if (userMessage.contains("library hours")) {
+      return "The library is open from 8 AM to 10 PM on weekdays and 10 AM to 6 PM on weekends.";
+    } else if (userMessage.contains("sports facilities")) {
+      return "We have state-of-the-art sports facilities including a gym, tennis courts, and a swimming pool.";
+    } else if (userMessage.contains("faculty directory")) {
+      return "You can find the faculty directory on our website to get contact information for professors.";
+    } else if (userMessage.contains("career services")) {
+      return "Our career services department provides support for students in finding internships and job opportunities.";
+    } else if (userMessage.contains("housing options")) {
+      return "We offer various housing options for students, including on-campus and off-campus housing. You can explore these options on our website.";
+    } else if (userMessage.contains("student organizations")) {
+      return "We have a wide range of student organizations for you to join. Check out our website for a list of clubs and activities.";
+    } else if (userMessage.contains("graduation requirements")) {
+      return "To graduate, you must complete all required courses and meet GPA requirements. Details can be found in the academic catalog.";
+    } else if (userMessage.contains("international students")) {
+      return "We welcome international students and provide support for visa, housing, and cultural integration.";
+    } else if (userMessage.contains("alumni association")) {
+      return "Our alumni association helps you stay connected with fellow graduates. Join our alumni network today!";
     } else {
       return "I'm sorry, I don't have a response for that.";
     }
@@ -140,8 +174,8 @@ class _ChatbotPageState extends State<ChatbotPage> {
             height: 24,
             width: 24,
           ),
-          SizedBox(width: 16),
-          Text(
+          const SizedBox(width: 16),
+          const Text(
             'iNfo',
             style: TextStyle(
               color: Colors.blue,
@@ -197,7 +231,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -210,7 +244,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
             child: TextField(
               controller: _textController,
               onSubmitted: _sendMessage,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Message',
                 hintStyle: TextStyle(color: Colors.blue),
                 border: InputBorder.none,
