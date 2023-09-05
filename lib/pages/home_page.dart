@@ -34,6 +34,77 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         body: ListView(
           children: [
+            // Account Button --------------------------------------------------
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                width: double.infinity,
+                height: 75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Color.fromARGB(255, 0, 52, 107),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 100,
+                      offset: const Offset(0, 0),
+                    ),
+                  ],
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {},
+                    borderRadius: BorderRadius.circular(16),
+                    splashColor: const Color.fromARGB(255, 255, 255, 255),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Row(
+                        children: [
+                          // Image on the left
+                          Image.asset('assets/images/Profile Pic.png'),
+                          const SizedBox(
+                              width: 16), // Space between the image and text
+
+                          // Title and Description
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Profile Name',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  'Student ID: 12345',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Icon(
+                            Icons.more_vert_rounded,
+                            size: 24,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
             // Event Slider ----------------------------------------------------
             Padding(
               padding: const EdgeInsets.all(20.0),

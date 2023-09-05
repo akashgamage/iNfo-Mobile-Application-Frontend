@@ -16,6 +16,7 @@ class TableExampleScreen extends StatelessWidget {
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
         ),
         body: TableExample(),
       ),
