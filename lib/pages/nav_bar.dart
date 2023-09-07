@@ -26,8 +26,8 @@ class NavBarState extends State<NavBar> {
           begin: Alignment.bottomLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color.fromARGB(199, 255, 255, 255),
-            Color.fromARGB(197, 7, 57, 97),
+            Color.fromARGB(180, 0, 0, 156),
+            Color.fromARGB(180, 0, 20, 37),
           ],
         ),
       ),
