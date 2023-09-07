@@ -5,6 +5,7 @@ import 'package:info_mobile_application/pages/Departments/Dep_CSSE.dart';
 import 'package:info_mobile_application/pages/Departments/Dep_DS.dart';
 import 'package:info_mobile_application/pages/Departments/Dep_ISS.dart';
 import 'package:info_mobile_application/pages/Departments/Dep_NS.dart';
+import 'package:info_mobile_application/pages/profile.dart';
 import 'package:info_mobile_application/pages/time_table.dart.dart';
 
 import 'Clubs/CSSL_doc.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                 height: 75,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
-                  color: Color.fromARGB(255, 0, 52, 107),
+                  color: const Color.fromARGB(255, 7, 57, 97),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
@@ -55,7 +56,13 @@ class _HomePageState extends State<HomePage> {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfilePage()),
+                      );
+                    },
                     borderRadius: BorderRadius.circular(16),
                     splashColor: const Color.fromARGB(255, 255, 255, 255),
                     child: Padding(
@@ -323,7 +330,8 @@ class _HomePageState extends State<HomePage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              backgroundColor: const Color(0xFF007AFF),
+                              backgroundColor:
+                                  const Color.fromARGB(255, 7, 57, 97),
                             ),
                             child: const Row(
                               // Add a Row to display icon and text side by side
@@ -516,7 +524,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildDotIndicator(bool isActive) {
-    const activeColor = Color(0xFF007AFF);
+    const activeColor = const Color.fromARGB(255, 7, 57, 97);
     const inactiveColor = Colors.grey;
 
     return AnimatedContainer(
@@ -586,7 +594,7 @@ class _HomePageState extends State<HomePage> {
         height: 120,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: const Color(0xFF007AFF),
+          color: const Color.fromARGB(255, 7, 57, 97),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -696,7 +704,7 @@ class _HomePageState extends State<HomePage> {
         height: 120,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: const Color(0xFF007AFF),
+          color: const Color.fromARGB(255, 7, 57, 97),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -1114,7 +1122,7 @@ class DepartmentButton extends StatelessWidget {
         width: 230,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: const Color(0xFF007AFF),
+          color: const Color.fromARGB(255, 7, 57, 97),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),

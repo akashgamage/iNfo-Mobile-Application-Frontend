@@ -19,7 +19,9 @@ class SpeechBubble extends StatelessWidget {
     final isUserMessage = this.isUserMessage;
     final alignment =
         isUserMessage ? CrossAxisAlignment.end : CrossAxisAlignment.start;
-    final color = isUserMessage ? Colors.blue : const Color(0xFF9C94FF);
+    final color = isUserMessage
+        ? const Color.fromARGB(255, 7, 57, 97)
+        : const Color.fromARGB(255, 7, 57, 97);
 
     return Column(
       crossAxisAlignment: alignment,

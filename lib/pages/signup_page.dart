@@ -122,7 +122,7 @@ class _SignUpState extends State<SignUp> {
     final signupButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(12),
-      color: const Color.fromARGB(255, 35, 104, 253),
+      color: const Color.fromARGB(255, 7, 57, 97),
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
@@ -228,7 +228,7 @@ class _SignUpState extends State<SignUp> {
                           child: const Text(
                             " Log In",
                             style: TextStyle(
-                              color: Color(0xFF007AFF),
+                              color: Color.fromARGB(255, 7, 57, 97),
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
                               fontSize: 16,

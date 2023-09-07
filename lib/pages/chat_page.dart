@@ -179,7 +179,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
           const Text(
             'iNfo',
             style: TextStyle(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 7, 57, 97),
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -247,7 +247,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
               onSubmitted: _sendMessage,
               decoration: const InputDecoration(
                 hintText: 'Message',
-                hintStyle: TextStyle(color: Colors.blue),
+                hintStyle: TextStyle(color: Color.fromARGB(255, 7, 57, 97)),
                 border: InputBorder.none,
               ),
             ),

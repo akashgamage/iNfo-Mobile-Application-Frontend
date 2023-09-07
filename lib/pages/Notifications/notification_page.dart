@@ -25,7 +25,7 @@ class NotificationPage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(255, 7, 57, 97),
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -62,7 +62,7 @@ class NotificationPage extends StatelessWidget {
               child: ListTile(
                 leading: const Icon(
                   Icons.notifications,
-                  color: Color.fromARGB(255, 30, 91, 222),
+                  color: Color.fromARGB(255, 7, 57, 97),
                 ),
                 title: Padding(
                   padding: const EdgeInsets.only(bottom: 4.0),

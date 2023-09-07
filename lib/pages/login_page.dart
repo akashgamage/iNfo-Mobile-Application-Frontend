@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(12),
-      color: const Color.fromARGB(255, 35, 104, 253),
+      color: const Color.fromARGB(255, 7, 57, 97),
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
       child: const Text(
         "Forgot Password?",
         style: TextStyle(
-          color: Color.fromARGB(255, 73, 161, 255),
+          color: Color.fromARGB(255, 7, 57, 97),
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
           fontSize: 14,
@@ -221,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: const Text(
                             " Sign Up",
                             style: TextStyle(
-                              color: Color(0xFF007AFF),
+                              color: Color.fromARGB(255, 7, 57, 97),
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
                               fontSize: 15,
