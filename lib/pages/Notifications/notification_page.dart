@@ -17,7 +17,6 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: const Text(
           'Notifications',
           style: TextStyle(
@@ -25,40 +24,17 @@ class NotificationPage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 7, 57, 97),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Row(
-            mainAxisSize: MainAxisSize.min, // Set mainAxisSize to min
-            children: [
-              Icon(Icons.arrow_back_ios, color: Colors.black),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: 1.0), // Add spacing between icon and text
-                child: Text(
-                  'Back',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ],
-          ),
-        ),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/bg4.png'), // Replace with your image path
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: ListView.builder(
-          itemCount: notifications.length,
-          itemBuilder: (context, index) {
-            return Card(
-              color: const Color.fromARGB(255, 229, 228, 245),
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      body: ListView.builder(
+        itemCount: notifications.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Card(
+              color: const Color.fromARGB(255, 224, 242, 255),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
                 leading: const Icon(
                   Icons.notifications,
@@ -75,9 +51,9 @@ class NotificationPage extends StatelessWidget {
                   // Handle notification tap here if needed
                 },
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

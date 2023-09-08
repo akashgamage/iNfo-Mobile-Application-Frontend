@@ -145,9 +145,16 @@ class _ChatbotPageState extends State<ChatbotPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         centerTitle: true,
-        title: _buildAppBarTitle(),
+        title: const Text(
+          'N Chat',
+          style: TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: Column(
         children: [
@@ -165,29 +172,29 @@ class _ChatbotPageState extends State<ChatbotPage> {
     );
   }
 
-  Widget _buildAppBarTitle() {
-    return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            'assets/chat_active.png',
-            height: 24,
-            width: 24,
-          ),
-          const SizedBox(width: 16),
-          const Text(
-            'iNfo',
-            style: TextStyle(
-              color: Color.fromARGB(255, 7, 57, 97),
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildAppBarTitle() {
+  //   return Expanded(
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: [
+  //         Image.asset(
+  //           'assets/chat_active.png',
+  //           height: 24,
+  //           width: 24,
+  //         ),
+  //         const SizedBox(width: 16),
+  //         const Text(
+  //           'iNfo',
+  //           style: TextStyle(
+  //             color: Color.fromARGB(255, 7, 57, 97),
+  //             fontSize: 20,
+  //             fontWeight: FontWeight.bold,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildChatBubbleWithAnimation(ChatMessage message, int index) {
     final isUserMessage = message.isUserMessage;
