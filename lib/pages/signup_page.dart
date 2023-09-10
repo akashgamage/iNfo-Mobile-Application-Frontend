@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:info_mobile_application/firebase_auth_implementation/firebase_auth_services.dart';
 
 import 'login_page.dart';
 
@@ -11,12 +13,23 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _formkey = GlobalKey<FormState>();
+
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
+
   // Editing Controller
   final usernameEditingController = TextEditingController();
   final emailEditingController = TextEditingController();
   final passwordEditingController = TextEditingController();
 
   bool passwordObscured = true;
+
+  @override
+  void dispose() {
+    usernameEditingController.dispose();
+    emailEditingController.dispose();
+    passwordEditingController.dispose();
+    super.dispose();
+  }
 
   // Function to handle the signup
   void _handleSignUp() {
@@ -126,7 +139,7 @@ class _SignUpState extends State<SignUp> {
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: _handleSignUp,
+        onPressed: _signup,
         child: const Text(
           "Sign Up",
           textAlign: TextAlign.center,
@@ -245,5 +258,19 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  void _signup() async {
+    String username = usernameEditingController.text;
+    String email = emailEditingController.text;
+    String password = passwordEditingController.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+
+    if (user != null) {
+      
+      _handleSignUp();
+    
+    }
   }
 }

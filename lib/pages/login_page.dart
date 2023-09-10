@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:info_mobile_application/pages/nav_bar.dart';
+import '../firebase_auth_implementation/firebase_auth_services.dart';
 import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,21 +13,50 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
+
+   final FirebaseAuthServices _auth = FirebaseAuthServices();
   // Editing Controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  
   bool passwordObscured = true;
 
+ @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   // Function to handle the signup
-  void _handleSignUp() {
+   void _handleSignIn() {
     if (_formkey.currentState!.validate()) {
-      // ignore: unused_local_variable
-      String email = emailController.text;
-      // ignore: unused_local_variable
-      String password = passwordController.text;
+      // Simulate successful sign-up
+     
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Email or Password is incorrect. Please try again!"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
+                child: const Text("OK"),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
+
+  
 
   // Function to handle "Forgot Password" button
   void _handleForgotPassword() {
@@ -95,14 +126,7 @@ class _LoginPageState extends State<LoginPage> {
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          if (_formkey.currentState!.validate()) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const NavBar()),
-            );
-          }
-        },
+        onPressed: _signin,
         child: const Text(
           "Log In",
           textAlign: TextAlign.center,
@@ -238,5 +262,23 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+    void _signin() async {
+    
+    String email = emailController.text;
+    String password = passwordController.text;
+
+    User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+   if (user != null) {
+      // ignore: use_build_context_synchronously
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NavBar()),
+      );
+    }
+    else{
+     _handleSignIn();
+    }
   }
 }
