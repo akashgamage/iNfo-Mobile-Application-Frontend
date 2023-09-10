@@ -228,53 +228,57 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       // Batch & University Dropdowns
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          // Batch Dropdown
-                          _buildDropdown(
-                            label: 'Batch',
-                            value: _selectedBatch,
-                            items: [
-                              'Select',
-                              '19.2',
-                              '20.1',
-                              '20.2',
-                              '20.3',
-                              '21.1',
-                              '21.2',
-                              '22.1',
-                              '22.2',
-                              '23.1',
-                              '23.2',
-                              '23.3'
-                            ],
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _selectedBatch = newValue ??
-                                    'Select'; // Default value if null
-                              });
-                            },
-                          ),
+                      FittedBox(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Batch Dropdown
+                            _buildDropdown(
+                              label: 'Batch',
+                              value: _selectedBatch,
+                              items: [
+                                'Select',
+                                '19.2',
+                                '20.1',
+                                '20.2',
+                                '20.3',
+                                '21.1',
+                                '21.2',
+                                '22.1',
+                                '22.2',
+                                '23.1',
+                                '23.2',
+                                '23.3'
+                              ],
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  _selectedBatch = newValue ??
+                                      'Select'; // Default value if null
+                                });
+                              },
+                            ),
 
-                          // University Dropdown
-                          _buildDropdown(
-                            label: 'University',
-                            value: _selectedUniversity,
-                            items: [
-                              'Select',
-                              'NSBM - UGC - SL',
-                              'Plymouth U - UK',
-                              'Victoria U - Aus',
-                            ],
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _selectedUniversity = newValue ??
-                                    'Select'; // Default value if null
-                              });
-                            },
-                          ),
-                        ],
+                            const SizedBox(width: 70),
+
+                            // University Dropdown
+                            _buildDropdown(
+                              label: 'University',
+                              value: _selectedUniversity,
+                              items: [
+                                'Select',
+                                'NSBM - UGC - SL',
+                                'Plymouth U - UK',
+                                'Victoria U - Aus',
+                              ],
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  _selectedUniversity = newValue ??
+                                      'Select'; // Default value if null
+                                });
+                              },
+                            ),
+                          ],
+                        ),
                       ),
 
                       const SizedBox(height: 20),
@@ -642,20 +646,21 @@ class _HomePageState extends State<HomePage> {
             splashColor: const Color.fromARGB(255, 255, 255, 255),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  // Image on the left
-                  Image.asset(
-                    imageAsset,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(width: 20), // Space between the image and text
+              child: FittedBox(
+                child: Row(
+                  children: [
+                    // Image on the left
+                    Image.asset(
+                      imageAsset,
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(
+                        width: 10), // Space between the image and text
 
-                  // Title and Description
-                  Expanded(
-                    child: Column(
+                    // Title and Description
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -667,7 +672,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                         ),
-                        const SizedBox(height: 5),
+                        const SizedBox(height: 6),
                         Text(
                           description,
                           style: const TextStyle(
@@ -675,15 +680,16 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  ),
+                    const SizedBox(width: 20),
 
-                  // Right-side arrow icon
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 24,
-                    color: Colors.white,
-                  ),
-                ],
+                    // Right-side arrow icon
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -751,20 +757,21 @@ class _HomePageState extends State<HomePage> {
             splashColor: const Color.fromARGB(255, 255, 255, 255),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  // Image on the left
-                  Image.asset(
-                    imageAsset,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(width: 20), // Space between the image and text
+              child: FittedBox(
+                child: Row(
+                  children: [
+                    // Image on the left
+                    Image.asset(
+                      imageAsset,
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(
+                        width: 10), // Space between the image and text
 
-                  // Title and Description
-                  Expanded(
-                    child: Column(
+                    // Title and Description
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -776,7 +783,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                         ),
-                        const SizedBox(height: 5),
+                        const SizedBox(height: 6),
                         Text(
                           description,
                           style: const TextStyle(
@@ -784,15 +791,16 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  ),
+                    const SizedBox(width: 20),
 
-                  // Right-side arrow icon
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 24,
-                    color: Colors.white,
-                  ),
-                ],
+                    // Right-side arrow icon
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
