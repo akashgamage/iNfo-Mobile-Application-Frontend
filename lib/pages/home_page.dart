@@ -329,7 +329,7 @@ class _HomePageState extends State<HomePage> {
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0,
-                                vertical: 16.0,
+                                vertical: 20.0,
                               ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.0),

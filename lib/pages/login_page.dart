@@ -14,14 +14,14 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
 
-   final FirebaseAuthServices _auth = FirebaseAuthServices();
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
   // Editing Controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  
+
   bool passwordObscured = true;
 
- @override
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -29,15 +29,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   // Function to handle the signup
-   void _handleSignIn() {
+  void _handleSignIn() {
     if (_formkey.currentState!.validate()) {
       // Simulate successful sign-up
-     
+
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text("Email or Password is incorrect. Please try again!"),
+            title:
+                const Text("Email or Password is incorrect. Please try again!"),
             actions: [
               TextButton(
                 onPressed: () {
@@ -55,8 +56,6 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
   }
-
-  
 
   // Function to handle "Forgot Password" button
   void _handleForgotPassword() {
@@ -124,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
       borderRadius: BorderRadius.circular(12),
       color: const Color.fromARGB(255, 7, 57, 97),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: _signin,
         child: const Text(
@@ -263,22 +262,21 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-    void _signin() async {
-    
+
+  void _signin() async {
     String email = emailController.text;
     String password = passwordController.text;
 
     User? user = await _auth.signInWithEmailAndPassword(email, password);
 
-   if (user != null) {
+    if (user != null) {
       // ignore: use_build_context_synchronously
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const NavBar()),
       );
-    }
-    else{
-     _handleSignIn();
+    } else {
+      _handleSignIn();
     }
   }
 }
