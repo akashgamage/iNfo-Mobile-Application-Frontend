@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:info_mobile_application/pages/Notifications/notification_page.dart';
 import 'package:info_mobile_application/pages/chat_page.dart';
-import 'package:info_mobile_application/pages/settings_page.dart';
 
+import 'Settings/settings_page.dart';
 import 'home_page.dart';
 
 class NavBar extends StatefulWidget {
