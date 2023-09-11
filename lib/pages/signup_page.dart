@@ -137,7 +137,7 @@ class _SignUpState extends State<SignUp> {
       borderRadius: BorderRadius.circular(12),
       color: const Color.fromARGB(255, 7, 57, 97),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: _signup,
         child: const Text(
@@ -268,9 +268,7 @@ class _SignUpState extends State<SignUp> {
     User? user = await _auth.signUpWithEmailAndPassword(email, password);
 
     if (user != null) {
-      
       _handleSignUp();
-    
     }
   }
 }
