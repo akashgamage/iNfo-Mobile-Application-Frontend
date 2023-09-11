@@ -15,34 +15,18 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // Added MaterialApp wrapper for the entire app
       home: Theme(
         data: _darkModeEnabled ? ThemeData.dark() : ThemeData.light(),
         child: Scaffold(
           appBar: AppBar(
-            leading: IconButton(
-              icon: const Icon(
-                Icons.chevron_left,
-                size: 30,
-                color: Colors.black,
+            title: const Text(
+              'Settings',
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.bold,
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            title: Row(
-              children: [
-                const SizedBox(width: 4),
-                Text(
-                  'Settings',
-                  style: TextStyle(
-                    color: _darkModeEnabled ? Colors.white : Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
             ),
             backgroundColor: _darkModeEnabled ? Colors.grey[800] : Colors.white,
           ),
@@ -57,7 +41,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       icon: Icons.notifications,
                       title: 'Notifications',
                       content: CupertinoSwitch(
-                        activeColor: Colors.blue,
+                        activeColor: const Color.fromARGB(255, 7, 57, 97),
                         trackColor: Colors.grey,
                         value: _notificationEnabled,
                         onChanged: (value) {
@@ -72,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       icon: Icons.lightbulb,
                       title: 'Theme',
                       content: CupertinoSwitch(
-                        activeColor: Colors.blue,
+                        activeColor: const Color.fromARGB(255, 7, 57, 97),
                         trackColor: Colors.grey,
                         value: _darkModeEnabled,
                         onChanged: (value) {
@@ -101,6 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                     ),
                     _buildDivider(),
+                    const SizedBox(height: 18),
                     _buildLogoutButton(),
                   ],
                 ),
@@ -220,8 +205,8 @@ class _SettingsPageState extends State<SettingsPage> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: _darkModeEnabled
-                    ? Colors.grey[800]
-                    : const Color.fromARGB(255, 219, 226, 233),
+                    ? const Color.fromARGB(255, 7, 57, 97)
+                    : const Color.fromARGB(255, 7, 57, 97),
               ),
               child: const Text(
                 'Logout',

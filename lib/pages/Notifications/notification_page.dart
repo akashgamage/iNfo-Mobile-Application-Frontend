@@ -25,7 +25,8 @@ class NotificationPage extends StatelessWidget {
           ),
         ),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme:
+            IconThemeData(color: const Color.fromARGB(255, 255, 255, 255)),
       ),
       body: ListView.builder(
         itemCount: notifications.length,

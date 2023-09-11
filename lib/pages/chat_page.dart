@@ -154,7 +154,8 @@ class _ChatbotPageState extends State<ChatbotPage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme:
+            IconThemeData(color: const Color.fromARGB(255, 255, 255, 255)),
       ),
       body: Column(
         children: [
