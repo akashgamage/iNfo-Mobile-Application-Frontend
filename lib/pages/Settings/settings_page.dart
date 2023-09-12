@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:info_mobile_application/pages/login_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -200,8 +202,12 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             ElevatedButton(
               onPressed: () {
+                FirebaseAuth.instance.signOut();
                 // navigation to the login screen
-                Navigator.pushReplacementNamed(context, '/login');
+               Navigator.push(
+           context,
+             MaterialPageRoute(builder: (context) => const LoginPage()),
+           );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: _darkModeEnabled
