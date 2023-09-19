@@ -8,13 +8,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-        apiKey: "AIzaSyCmt198V0UUyLiDpCirvO6dJ0bv5-PdUN8",
-        appId: "1:574293638984:web:737c7008a26ae11e63bd7d",
-        messagingSenderId: "574293638984",
-        projectId: "info-app-f4289"),
-  );
+  await Firebase.initializeApp();
 
   runApp(
     DevicePreview(
