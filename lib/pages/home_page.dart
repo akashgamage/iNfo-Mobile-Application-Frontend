@@ -76,10 +76,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
                         children: [
-                          // Image on the left
+                          
                           Image.asset('assets/images/Profile Pic.png'),
                           const SizedBox(
-                              width: 4), // Space between the image and text
+                              width: 4), 
 
                           // Title and Description
                           // Title and Description
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                           child: CarouselSlider(
                             carouselController: _carouselController,
                             options: CarouselOptions(
-                              // Adjust the height based on the screen size
+                              
                               viewportFraction: 1.0,
                               autoPlay: true,
                               autoPlayInterval: const Duration(seconds: 3),
@@ -245,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(
                         height:
-                            20), // Adjust the space between slider and indicator
+                            20), 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
@@ -316,7 +316,7 @@ class _HomePageState extends State<HomePage> {
                               onChanged: (String? newValue) {
                                 setState(() {
                                   _selectedBatch = newValue ??
-                                      'Select'; // Default value if null
+                                      'Select'; 
                                 });
                               },
                             ),
@@ -336,7 +336,7 @@ class _HomePageState extends State<HomePage> {
                               onChanged: (String? newValue) {
                                 setState(() {
                                   _selectedUniversity = newValue ??
-                                      'Select'; // Default value if null
+                                      'Select'; 
                                 });
                               },
                             ),
@@ -368,7 +368,7 @@ class _HomePageState extends State<HomePage> {
                             onChanged: (String? newValue) {
                               setState(() {
                                 _selectedDegreeProgram = newValue ??
-                                    'Select'; // Default value if null
+                                    'Select'; 
                               });
                             },
                           ),
@@ -401,17 +401,17 @@ class _HomePageState extends State<HomePage> {
                                   const Color.fromARGB(255, 7, 57, 97),
                             ),
                             child: const Row(
-                              // Add a Row to display icon and text side by side
+                              
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  // Search icon
+                                  
                                   Icons.search,
                                   color: Colors.white,
                                   size: 20,
                                 ),
                                 SizedBox(
-                                    width: 16), // Space between icon and text
+                                    width: 16), 
                                 Text(
                                   'Search',
                                   style: TextStyle(fontSize: 16.0),
@@ -484,7 +484,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: ListView(
                         scrollDirection:
-                            Axis.horizontal, // Horizontal scrolling
+                            Axis.horizontal, 
                         children: [
                           // Computer Science & Software Engineering Button
                           DepartmentButton(
@@ -699,7 +699,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.transparent,
           child: InkWell(
             onTap: () {
-              //on tap function.... change this if need
+              //on tap function.... 
               showModalBottomSheet(
                 //enableDrag: true,
                 isScrollControlled: true,
@@ -736,7 +736,7 @@ class _HomePageState extends State<HomePage> {
               child: FittedBox(
                 child: Row(
                   children: [
-                    // Image on the left
+                    
                     Image.asset(
                       imageAsset,
                       width: 80,
@@ -744,7 +744,7 @@ class _HomePageState extends State<HomePage> {
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(
-                        width: 10), // Space between the image and text
+                        width: 10), 
 
                     // Title and Description
                     Column(
@@ -769,7 +769,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(width: 20),
 
-                    // Right-side arrow icon
+                    
                     const Icon(
                       Icons.arrow_forward_ios,
                       size: 24,

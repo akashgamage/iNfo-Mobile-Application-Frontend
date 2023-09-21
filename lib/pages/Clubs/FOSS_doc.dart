@@ -7,7 +7,7 @@ class FOSSDoc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.8, // Set the desired
+      height: MediaQuery.of(context).size.height * 0.8, 
       // color: Colors.white,
       padding: const EdgeInsets.all(18),
       decoration: const BoxDecoration(
@@ -28,12 +28,12 @@ class FOSSDoc extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  'assets/images/foss.png', // Replace with your image asset path
-                  width: 100, // Adjust the width as needed
-                  height: 100, // Adjust the height as needed
+                  'assets/images/foss.png', 
+                  width: 100, 
+                  height: 100, 
                 ),
                 const SizedBox(
-                    width: 8), // Adding some space between the image and text
+                    width: 8), 
                 const Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(right: 10, left: 30, top: 20),
@@ -54,7 +54,7 @@ class FOSSDoc extends StatelessWidget {
               TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Description\n',
+                    text: '\nDescription\n',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -75,7 +75,7 @@ class FOSSDoc extends StatelessWidget {
                   ),
                   TextSpan(
                     text:
-                        'he idea of Free Open Source Software as we now know it began with the development in the early 1980s of the concept of "free software" by Richard Stallman. Richard went on to create the GNU project and Free Software Foundation to further his vision, not to mention some pretty good software. It took several more decades, but beginning in the early 2000s it became clear to most people that the free software vision was consolidating mind share around the world.\nFree, open-source operating systems such as GNU, Linux and BSD are widely utilized today, powering millions of servers, desktops, smartphones (e.g. Google Android), and other devices. Free software licenses and open-source licenses are used in many software packages.\n',
+                        'he idea of Free Open Source Software as we now know it began with the development in the early 1980s of the concept of "free software" by Richard Stallman.\n\nRichard went on to create the GNU project and Free Software Foundation to further his vision, not to mention some pretty good software.It took several more decades, but beginning in the early 2000s it became clear to most people that the free software vision was consolidating mind share around the world.\n\nFree, open-source operating systems such as GNU, Linux and BSD are widely utilized today, powering millions of servers, desktops, smartphones (e.g. Google Android), and other devices. Free software licenses and open-source licenses are used in many software packages.\n',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -87,32 +87,35 @@ class FOSSDoc extends StatelessWidget {
                 ],
               ),
             ),
-            // Add more widgets or content below if needed.
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 230, right: 20, bottom: 8, top: 1),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    // padding: const EdgeInsets.symmetric(
-                    //     horizontal: 20, vertical: 12),
-                  ),
-                  onPressed: () {
-                    _launchWebsite(); // Call a function to open the website
-                  },
-                  child: const Text(
-                    'Join Now',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(color: Colors.white, width: 2),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+                      ),
+                      onPressed: () {
+                        _launchWebsite(); // Call a function to open the website
+                      },
+                      child: const Text(
+                        'Join Now',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )),
+                ),
+              ],
             ),
           ],
         ),
@@ -122,7 +125,7 @@ class FOSSDoc extends StatelessWidget {
 
   _launchWebsite() async {
     const url =
-        'https://www.fossnsbm.org'; // Replace with your desired website URL
+        'https://www.fossnsbm.org'; 
     if (await canLaunch(url)) {
       await launch(url);
     } else {

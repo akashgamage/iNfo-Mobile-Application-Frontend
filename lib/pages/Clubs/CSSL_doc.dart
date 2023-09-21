@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class CSSLDoc extends StatelessWidget {
   const CSSLDoc({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.8, // Set the desired
+      height: MediaQuery.of(context).size.height * 0.8, 
       // color: Colors.white,
       padding: const EdgeInsets.all(18),
       decoration: const BoxDecoration(
@@ -27,12 +28,12 @@ class CSSLDoc extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  'assets/images/cssl.png', // Replace with your image asset path
-                  width: 130, // Adjust the width as needed
-                  height: 100, // Adjust the height as needed
+                  'assets/images/cssl.png', 
+                  width: 130, 
+                  height: 100, 
                 ),
                 const SizedBox(
-                    width: 8), // Adding some space between the image and text
+                    width: 8), 
                 const Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(right: 10, left: 30, top: 30),
@@ -76,7 +77,7 @@ class CSSLDoc extends StatelessWidget {
                     ),
                     TextSpan(
                       text:
-                          'SBM GenZ student chapter was established on 19th July 2023 and since we’ve been consistently working to promote professionalism among all our members under the experienced guidance of our instructor panel. Our mentorship programs connect students with experienced professionals who offer guidance, share industry insights, and provide career advice for informed career decisions and desired trajectories.',
+                          'SBM GenZ student chapter was established on 19th July 2023 and since we’ve been consistently working to promote professionalism among all our members under the experienced guidance of our instructor panel.\n\nOur mentorship programs connect students with experienced professionals who offer guidance, share industry insights, and provide career advice for informed career decisions and desired trajectories.\n\n ',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -89,41 +90,45 @@ class CSSLDoc extends StatelessWidget {
                 ),
               ),
             ),
-            // Add more widgets or content below if needed.
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 230, right: 20, bottom: 8, top: 1),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    // padding: const EdgeInsets.symmetric(
-                    //     horizontal: 20, vertical: 12),
-                  ),
-                  onPressed: () {
-                      _launchWebsite();
-                  },
-                  child: const Text(
-                    'Join Now',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(color: Colors.white, width: 2),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+                      ),
+                      onPressed: () {
+                        _launchWebsite();
+                      },
+                      child: const Text(
+                        'Join Now',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )),
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
   }
+
   _launchWebsite() async {
     const url =
-        'https://cssl.nsbm.ac.lk/'; // Replace with your desired website URL
+        'https://cssl.nsbm.ac.lk/'; 
     if (await canLaunch(url)) {
       await launch(url);
     } else {
