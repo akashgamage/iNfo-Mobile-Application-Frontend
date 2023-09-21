@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double displayWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
         body: ListView(
@@ -163,71 +164,71 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                             items: [
-                          GestureDetector(
-                            onTap: () {
-                              _showImagePopup(
-                                'assets/images/TV Banner2.png',
-                                'Software Freedom Day 2023',
-                                'Software Freedom Day 2023 is a global celebration of open-source technology, featuring workshops, discussions, and a vision for a more inclusive and accessible digital future.',
-                                'Register',
-                                onButtonPressed: () async {
-                                  const url =
-                                      'https://www.fossnsbm.org/events/sfd-2023';
-                                  // ignore: deprecated_member_use
-                                  if (await canLaunch(url)) {
-                                    // ignore: deprecated_member_use
-                                    await launch(url);
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
+                              GestureDetector(
+                                onTap: () {
+                                  _showImagePopup(
+                                    'assets/images/TV Banner2.png',
+                                    'Software Freedom Day 2023',
+                                    'Software Freedom Day 2023 is a global celebration of open-source technology, featuring workshops, discussions, and a vision for a more inclusive and accessible digital future.',
+                                    'Register',
+                                    onButtonPressed: () async {
+                                      const url =
+                                          'https://www.fossnsbm.org/events/sfd-2023';
+                                      // ignore: deprecated_member_use
+                                      if (await canLaunch(url)) {
+                                        // ignore: deprecated_member_use
+                                        await launch(url);
+                                      } else {
+                                        throw 'Could not launch $url';
+                                      }
+                                    },
+                                  );
                                 },
-                              );
-                            },
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.asset(
-                                'assets/images/TV Banner2.png',
-                                fit: BoxFit.cover,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    'assets/images/TV Banner2.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              _showImagePopup(
-                                'assets/images/USport.png',
-                                'Image 2',
-                                'Description 2',
-                                'Button Label 2',
-                                onButtonPressed: () {},
-                              );
-                            },
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.asset(
-                                'assets/images/USport.png',
-                                fit: BoxFit.cover,
+                              GestureDetector(
+                                onTap: () {
+                                  _showImagePopup(
+                                    'assets/images/USport.png',
+                                    'Image 2',
+                                    'Description 2',
+                                    'Button Label 2',
+                                    onButtonPressed: () {},
+                                  );
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    'assets/images/USport.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              _showImagePopup(
-                                'assets/images/CN.png',
-                                'Image 3',
-                                'Description 3',
-                                'Button Label 3',
-                                onButtonPressed: () {},
-                              );
-                            },
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.asset(
-                                'assets/images/CN.png',
-                                fit: BoxFit.cover,
+                              GestureDetector(
+                                onTap: () {
+                                  _showImagePopup(
+                                    'assets/images/CN.png',
+                                    'Image 3',
+                                    'Description 3',
+                                    'Button Label 3',
+                                    onButtonPressed: () {},
+                                  );
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    'assets/images/CN.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ],
+                            ],
                           ),
                         ),
                       ),
@@ -379,9 +380,9 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20.0,
-                                vertical: 20.0,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: displayWidth * .05,
+                                vertical: displayWidth * .04,
                               ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.0),

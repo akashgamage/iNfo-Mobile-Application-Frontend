@@ -132,12 +132,16 @@ class _SignUpState extends State<SignUp> {
     );
 
     // Sign Up Button
+    double displayWidth = MediaQuery.of(context).size.width;
     final signupButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(12),
       color: const Color.fromARGB(255, 7, 57, 97),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+        padding: EdgeInsets.symmetric(
+          horizontal: displayWidth * .05,
+          vertical: displayWidth * .04,
+        ),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: _signup,
         child: const Text(

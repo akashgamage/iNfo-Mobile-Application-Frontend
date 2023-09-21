@@ -118,12 +118,16 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     // Login Button
+    double displayWidth = MediaQuery.of(context).size.width;
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(12),
       color: const Color.fromARGB(255, 7, 57, 97),
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+        padding: EdgeInsets.symmetric(
+          horizontal: displayWidth * .05,
+          vertical: displayWidth * .04,
+        ),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: _signin,
         child: const Text(

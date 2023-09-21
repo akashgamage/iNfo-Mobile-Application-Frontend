@@ -37,9 +37,11 @@ class NotificationPage extends StatelessWidget {
               color: const Color.fromARGB(255, 224, 242, 255),
               margin: const EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
-                leading: const Icon(
-                  Icons.notifications,
-                  color: Color.fromARGB(255, 7, 57, 97),
+                leading: Image.asset(
+                  'assets/icons/bell.png',
+                  width: 24,
+                  height: 24,
+                  color: const Color.fromARGB(255, 7, 57, 97),
                 ),
                 title: Padding(
                   padding: const EdgeInsets.only(bottom: 4.0),
