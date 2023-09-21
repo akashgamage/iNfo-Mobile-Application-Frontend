@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 class CSSLDoc extends StatelessWidget {
   const CSSLDoc({super.key});
 
@@ -102,9 +102,11 @@ class CSSLDoc extends StatelessWidget {
                     // padding: const EdgeInsets.symmetric(
                     //     horizontal: 20, vertical: 12),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                      _launchWebsite();
+                  },
                   child: const Text(
-                    'Join Now!',
+                    'Join Now',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -118,5 +120,14 @@ class CSSLDoc extends StatelessWidget {
         ),
       ),
     );
+  }
+  _launchWebsite() async {
+    const url =
+        'https://cssl.nsbm.ac.lk/'; // Replace with your desired website URL
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

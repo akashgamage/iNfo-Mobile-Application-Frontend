@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FOSSDoc extends StatelessWidget {
   const FOSSDoc({super.key});
@@ -99,9 +100,11 @@ class FOSSDoc extends StatelessWidget {
                     // padding: const EdgeInsets.symmetric(
                     //     horizontal: 20, vertical: 12),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    _launchWebsite(); // Call a function to open the website
+                  },
                   child: const Text(
-                    'Join Now!',
+                    'Join Now',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -115,5 +118,15 @@ class FOSSDoc extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _launchWebsite() async {
+    const url =
+        'https://www.fossnsbm.org'; // Replace with your desired website URL
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
