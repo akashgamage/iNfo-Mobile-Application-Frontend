@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
+  const ProfilePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
@@ -13,7 +12,7 @@ class ProfilePage extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 248, 247, 255),
+              color: const Color.fromARGB(255, 248, 247, 255),
               borderRadius: BorderRadius.circular(12.0),
             ),
             child: Column(
@@ -38,7 +37,7 @@ class ProfilePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Profile Name',
+                                  'name',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -46,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  'Student ID: 12345',
+                                  ' umisID',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -100,7 +99,7 @@ class ProfilePage extends StatelessWidget {
                                 padding: EdgeInsets.symmetric(
                                     vertical: 16.0, horizontal: 20.0),
                                 child: Text(
-                                  'Profile Name',
+                                  'name',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
@@ -176,7 +175,7 @@ class ProfilePage extends StatelessWidget {
                                 padding: EdgeInsets.symmetric(
                                     vertical: 16.0, horizontal: 20.0),
                                 child: Text(
-                                  'example@students.nsbm.ac.lk',
+                                  'email',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,

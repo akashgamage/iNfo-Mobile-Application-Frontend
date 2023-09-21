@@ -9,6 +9,7 @@ import 'package:info_mobile_application/pages/profile.dart';
 import 'package:info_mobile_application/pages/time_table.dart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../firebase_auth_implementation/firebase_auth_services.dart';
 import 'Clubs/CSSL_doc.dart';
 import 'Clubs/FOSS_doc.dart';
 import 'Documentations/Ply_doc.dart';
@@ -26,14 +27,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentSliderIndex = 0;
   final CarouselController _carouselController = CarouselController();
-
+final FirebaseAuthServices _auth = FirebaseAuthServices();
   String _selectedBatch = 'Select';
   String _selectedUniversity = 'Select';
   String _selectedDegreeProgram = 'Select';
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     double displayWidth = MediaQuery.of(context).size.width;
+=======
+    String? userEmail = _auth.getUserEmail();
+>>>>>>> Stashed changes
     return Scaffold(
         backgroundColor: Colors.white,
         body: ListView(
@@ -63,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ProfilePage()),
+                            builder: (context) =>  ProfilePage()),
                       );
                     },
                     borderRadius: BorderRadius.circular(16),
@@ -78,20 +83,23 @@ class _HomePageState extends State<HomePage> {
                               width: 16), // Space between the image and text
 
                           // Title and Description
-                          const Expanded(
+                          // Title and Description
+                          Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Profile Name',
-                                  style: TextStyle(
+                                  userEmail != null
+                                      ? 'Email: $userEmail'
+                                      : 'User not signed in',
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
-                                Text(
+                                const Text(
                                   'Student ID: 12345',
                                   style: TextStyle(
                                     fontSize: 16,
@@ -605,7 +613,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildDotIndicator(bool isActive) {
-    const activeColor = const Color.fromARGB(255, 7, 57, 97);
+    const activeColor = Color.fromARGB(255, 7, 57, 97);
     const inactiveColor = Colors.grey;
 
     return AnimatedContainer(
