@@ -27,18 +27,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentSliderIndex = 0;
   final CarouselController _carouselController = CarouselController();
-final FirebaseAuthServices _auth = FirebaseAuthServices();
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
   String _selectedBatch = 'Select';
   String _selectedUniversity = 'Select';
   String _selectedDegreeProgram = 'Select';
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
     double displayWidth = MediaQuery.of(context).size.width;
-=======
+
     String? userEmail = _auth.getUserEmail();
->>>>>>> Stashed changes
+
     return Scaffold(
         backgroundColor: Colors.white,
         body: ListView(
@@ -68,7 +67,7 @@ final FirebaseAuthServices _auth = FirebaseAuthServices();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  ProfilePage()),
+                            builder: (context) => const ProfilePage()),
                       );
                     },
                     borderRadius: BorderRadius.circular(16),
