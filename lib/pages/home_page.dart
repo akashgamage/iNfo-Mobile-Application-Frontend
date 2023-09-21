@@ -7,12 +7,14 @@ import 'package:info_mobile_application/pages/Departments/Dep_ISS.dart';
 import 'package:info_mobile_application/pages/Departments/Dep_NS.dart';
 import 'package:info_mobile_application/pages/profile.dart';
 import 'package:info_mobile_application/pages/time_table.dart.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'Clubs/CSSL_doc.dart';
 import 'Clubs/FOSS_doc.dart';
 import 'Documentations/Ply_doc.dart';
 import 'Documentations/UGC_doc.dart';
 import 'Documentations/Vic_doc.dart';
+import 'popup_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -161,21 +163,71 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                             items: [
-                              // Add your image widgets here for the slider
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.asset('assets/images/CN.png',
-                                      fit: BoxFit.cover)),
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.asset('assets/images/CSSE.png',
-                                      fit: BoxFit.cover)),
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.asset('assets/images/DCN.png',
-                                      fit: BoxFit.cover)),
-                              // We can add more images as needed
-                            ],
+                          GestureDetector(
+                            onTap: () {
+                              _showImagePopup(
+                                'assets/images/TV Banner2.png',
+                                'Software Freedom Day 2023',
+                                'Software Freedom Day 2023 is a global celebration of open-source technology, featuring workshops, discussions, and a vision for a more inclusive and accessible digital future.',
+                                'Register',
+                                onButtonPressed: () async {
+                                  const url =
+                                      'https://www.fossnsbm.org/events/sfd-2023';
+                                  // ignore: deprecated_member_use
+                                  if (await canLaunch(url)) {
+                                    // ignore: deprecated_member_use
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
+                              );
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.asset(
+                                'assets/images/TV Banner2.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              _showImagePopup(
+                                'assets/images/USport.png',
+                                'Image 2',
+                                'Description 2',
+                                'Button Label 2',
+                                onButtonPressed: () {},
+                              );
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.asset(
+                                'assets/images/USport.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              _showImagePopup(
+                                'assets/images/CN.png',
+                                'Image 3',
+                                'Description 3',
+                                'Button Label 3',
+                                onButtonPressed: () {},
+                              );
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.asset(
+                                'assets/images/CN.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
                           ),
                         ),
                       ),
@@ -525,6 +577,30 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ));
+  }
+
+  void _showImagePopup(
+    String imageUrl,
+    String title,
+    String description,
+    String buttonLabel, {
+    VoidCallback? onButtonPressed,
+  }) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return PopupPage(
+          imageUrl: imageUrl,
+          title: title,
+          description: description,
+          buttonLabel: buttonLabel,
+          onButtonPressed: () {
+            // Call the callback function
+            onButtonPressed?.call();
+          },
+        );
+      },
+    );
   }
 
   Widget _buildDotIndicator(bool isActive) {
