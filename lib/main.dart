@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:info_mobile_application/pages/login_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+
+import 'pages/home_page.dart';
 // import 'package:info_mobile_application/pages/home_page.dart';
 
 
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        nextScreen: const LoginPage(),
+        nextScreen: const HomePage(),
         splash: Image.asset(
           'assets/images/infologo.png',
           ),

@@ -79,36 +79,39 @@ class _HomePageState extends State<HomePage> {
                           // Image on the left
                           Image.asset('assets/images/Profile Pic.png'),
                           const SizedBox(
-                              width: 16), // Space between the image and text
+                              width: 4), // Space between the image and text
 
                           // Title and Description
                           // Title and Description
                           Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  userEmail != null
-                                      ? 'Email: $userEmail'
-                                      : 'User not signed in',
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            child: FittedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    userEmail != null
+                                        ? 'Email: $userEmail'
+                                        : 'User not signed in',
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                                const Text(
-                                  'Student ID: 12345',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                  const Text(
+                                    'Student ID: 12345',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
+                          const SizedBox(width: 8),
                           const Icon(
                             Icons.more_vert_rounded,
                             size: 24,
@@ -203,9 +206,9 @@ class _HomePageState extends State<HomePage> {
                                 onTap: () {
                                   _showImagePopup(
                                     'assets/images/USport.png',
-                                    'Image 2',
-                                    'Description 2',
-                                    'Button Label 2',
+                                    'NSBM USports 2023',
+                                    'Starting this September, witness 13 thrilling sports – Athletics, Basketball, Badminton, Cricket, Chess, Football, Hockey, Netball, Rugby, Swimming, Table Tennis, Volleyball and Taekwondo – at the grand university-level competition.',
+                                    'More',
                                     onButtonPressed: () {},
                                   );
                                 },
@@ -221,9 +224,9 @@ class _HomePageState extends State<HomePage> {
                                 onTap: () {
                                   _showImagePopup(
                                     'assets/images/CN.png',
-                                    'Image 3',
-                                    'Description 3',
-                                    'Button Label 3',
+                                    'NSBM Colours 2022',
+                                    'Champions crowned, dreams realized, and memories etched forever.\n\n Join us for the NSBM Colors 2022, a night of glory presented by NSBM Green University on 23rd of June 2023, at NSBM auditorium from 06:00pm onwards.\n\n Witness the crowning of our exceptional athletes as they take their well-deserved place in the memoirs of greatness. Let the celebration of victory begin!',
+                                    'More',
                                     onButtonPressed: () {},
                                   );
                                 },

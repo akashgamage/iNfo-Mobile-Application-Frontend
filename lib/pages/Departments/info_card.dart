@@ -27,15 +27,15 @@ class InfoCard extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(imagePath),
-                      radius: 30,
-                    ),
-                    const SizedBox(width: 16.0),
-                    Expanded(
-                      child: Column(
+                child: FittedBox(
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage(imagePath),
+                        radius: 30,
+                      ),
+                      const SizedBox(width: 16.0),
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -50,19 +50,19 @@ class InfoCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(width: 16.0),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Add your button action here.
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromRGBO(7, 57, 97, 1)),
+                      const SizedBox(width: 16.0),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Add your button action here.
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color.fromRGBO(7, 57, 97, 1)),
+                        ),
+                        child: const Text('Email'),
                       ),
-                      child: const Text('Email'),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
