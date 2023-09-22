@@ -204,10 +204,11 @@ class _SettingsPageState extends State<SettingsPage> {
               onPressed: () {
                 FirebaseAuth.instance.signOut();
                 // navigation to the login screen
-               Navigator.pushReplacement(
-           context,
-             MaterialPageRoute(builder: (context) => const LoginPage()),
-           );
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+            
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: _darkModeEnabled

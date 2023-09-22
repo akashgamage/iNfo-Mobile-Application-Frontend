@@ -275,7 +275,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (user != null) {
       // ignore: use_build_context_synchronously
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const NavBar()),
       );
