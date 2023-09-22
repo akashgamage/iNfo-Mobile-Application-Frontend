@@ -37,7 +37,7 @@ class ProfilePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'KGB Akash',
+                                  'Profile Name',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 10,
@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  '22883',
+                                  'NSBM ID',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 8,
