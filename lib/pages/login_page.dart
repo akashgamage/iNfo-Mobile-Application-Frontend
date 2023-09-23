@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:info_mobile_application/pages/nav_bar.dart';
+
 import '../firebase_auth_implementation/firebase_auth_services.dart';
 import 'signup_page.dart';
 
@@ -58,10 +59,71 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   // Function to handle "Forgot Password" button
-  void _handleForgotPassword() {
+  void _handleForgotPassword() async {
     // Implement your logic for handling forgot password here
-
-    print('Forgot Password tapped!');
+    // Show a dialog to collect the user's email
+    final emailResetController = TextEditingController();
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Forgot Password"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text("Enter your email to reset your password:"),
+              TextField(
+                controller: emailResetController,
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Cancel"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final email = emailResetController.text.trim();
+                if (email.isNotEmpty) {
+                  try {
+                    await FirebaseAuth.instance
+                        .sendPasswordResetEmail(email: email);
+                    Navigator.of(context).pop(); // Close the dialog
+                    // Show a success message or navigate to a success page
+                    // You can add a dialog or a Snackbar to inform the user.
+                    // Example:
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          "Password reset email sent. Check your inbox!",
+                        ),
+                      ),
+                    );
+                  } catch (error) {
+                    print("Error sending password reset email: $error");
+                    // Handle the error and inform the user.
+                    // You can show an error dialog or a Snackbar.
+                    // Example:
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          "Failed to send password reset email. Please try again.",
+                        ),
+                      ),
+                    );
+                  }
+                }
+              },
+              child: const Text("Reset Password"),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
