@@ -1,6 +1,6 @@
-import 'package:device_preview/device_preview.dart';
+
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:info_mobile_application/pages/login_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
