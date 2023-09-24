@@ -7,9 +7,11 @@ import 'package:info_mobile_application/pages/Departments/Dep_ISS.dart';
 import 'package:info_mobile_application/pages/Departments/Dep_NS.dart';
 import 'package:info_mobile_application/pages/profile.dart';
 import 'package:info_mobile_application/pages/time_table.dart.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../firebase_auth_implementation/firebase_auth_services.dart';
+import '../theme_provider.dart';
 import 'Clubs/CSSL_doc.dart';
 import 'Clubs/FOSS_doc.dart';
 import 'Documentations/Ply_doc.dart';
@@ -34,12 +36,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     double displayWidth = MediaQuery.of(context).size.width;
 
     String? userEmail = _auth.getUserEmail();
 
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: themeProvider.currentTheme.scaffoldBackgroundColor,
         body: ListView(
           children: [
             // Account Button --------------------------------------------------
@@ -76,10 +79,8 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
                         children: [
-                          
                           Image.asset('assets/images/Profile Pic.png'),
-                          const SizedBox(
-                              width: 4), 
+                          const SizedBox(width: 4),
 
                           // Title and Description
                           // Title and Description
@@ -157,7 +158,6 @@ class _HomePageState extends State<HomePage> {
                           child: CarouselSlider(
                             carouselController: _carouselController,
                             options: CarouselOptions(
-                              
                               viewportFraction: 1.0,
                               autoPlay: true,
                               autoPlayInterval: const Duration(seconds: 3),
@@ -243,9 +243,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                        height:
-                            20), 
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
@@ -265,7 +263,7 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
-                  color: const Color.fromARGB(255, 224, 242, 255),
+                  color: Colors.blueAccent.withOpacity(.2),
                   boxShadow: [
                     BoxShadow(
                       color:
@@ -281,12 +279,15 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.symmetric(vertical: 20.0),
                         child: Text(
                           "Today's Lectures",
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              color: themeProvider
+                                  .currentTheme.textTheme.bodyText1?.color,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
 
@@ -296,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             // Batch Dropdown
-                            _buildDropdown(
+                            ThemedDropdown(
                               label: 'Batch',
                               value: _selectedBatch,
                               items: [
@@ -315,8 +316,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                               onChanged: (String? newValue) {
                                 setState(() {
-                                  _selectedBatch = newValue ??
-                                      'Select'; 
+                                  _selectedBatch = newValue ?? 'Select';
                                 });
                               },
                             ),
@@ -324,7 +324,7 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(width: 70),
 
                             // University Dropdown
-                            _buildDropdown(
+                            ThemedDropdown(
                               label: 'University',
                               value: _selectedUniversity,
                               items: [
@@ -335,8 +335,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                               onChanged: (String? newValue) {
                                 setState(() {
-                                  _selectedUniversity = newValue ??
-                                      'Select'; 
+                                  _selectedUniversity = newValue ?? 'Select';
                                 });
                               },
                             ),
@@ -350,7 +349,7 @@ class _HomePageState extends State<HomePage> {
                       Center(
                         child: SizedBox(
                           width: double.infinity,
-                          child: _buildDropdown(
+                          child: ThemedDropdown(
                             label: 'Degree Program',
                             value: _selectedDegreeProgram,
                             items: [
@@ -367,8 +366,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                             onChanged: (String? newValue) {
                               setState(() {
-                                _selectedDegreeProgram = newValue ??
-                                    'Select'; 
+                                _selectedDegreeProgram = newValue ?? 'Select';
                               });
                             },
                           ),
@@ -401,17 +399,14 @@ class _HomePageState extends State<HomePage> {
                                   const Color.fromARGB(255, 7, 57, 97),
                             ),
                             child: const Row(
-                              
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  
                                   Icons.search,
                                   color: Colors.white,
                                   size: 20,
                                 ),
-                                SizedBox(
-                                    width: 16), 
+                                SizedBox(width: 16),
                                 Text(
                                   'Search',
                                   style: TextStyle(fontSize: 16.0),
@@ -431,13 +426,13 @@ class _HomePageState extends State<HomePage> {
 
             // 4 Department Buttons --------------------------------------------
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              padding: EdgeInsets.symmetric(vertical: displayWidth * .05),
               child: Container(
                 height: 400,
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  boxShadow: [
+                decoration: BoxDecoration(
+                  color: themeProvider.currentTheme.backgroundColor,
+                  boxShadow: const [
                     BoxShadow(
                       color: Color.fromARGB(50, 50, 50, 50),
                       // offset: Offset(0.0, 0.0),
@@ -467,15 +462,16 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10.0),
+                          horizontal: displayWidth * .05,
+                          vertical: displayWidth * .025),
                       child: Padding(
-                        padding: EdgeInsets.only(top: 10.0),
+                        padding: EdgeInsets.only(top: displayWidth * .025),
                         child: Text(
                           'Departments',
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: displayWidth * .05,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -483,8 +479,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Expanded(
                       child: ListView(
-                        scrollDirection:
-                            Axis.horizontal, 
+                        scrollDirection: Axis.horizontal,
                         children: [
                           // Computer Science & Software Engineering Button
                           DepartmentButton(
@@ -552,7 +547,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: displayWidth * .025),
                   ],
                 ),
               ),
@@ -606,7 +601,6 @@ class _HomePageState extends State<HomePage> {
           description: description,
           buttonLabel: buttonLabel,
           onButtonPressed: () {
-            // Call the callback function
             onButtonPressed?.call();
           },
         );
@@ -626,49 +620,6 @@ class _HomePageState extends State<HomePage> {
       decoration: BoxDecoration(
         color: isActive ? activeColor : inactiveColor,
         borderRadius: BorderRadius.circular(8.0),
-      ),
-    );
-  }
-
-  Widget _buildDropdown({
-    required String label,
-    required String value,
-    required List<String> items,
-    required void Function(String?) onChanged,
-  }) {
-    return FittedBox(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Container(
-            height: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.grey),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: DropdownButton<String>(
-                value: value,
-                onChanged: onChanged,
-                items: items.map<DropdownMenuItem<String>>((String item) {
-                  return DropdownMenuItem<String>(
-                    value: item,
-                    child: Text(item),
-                  );
-                }).toList(),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -699,9 +650,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.transparent,
           child: InkWell(
             onTap: () {
-              //on tap function.... 
               showModalBottomSheet(
-                //enableDrag: true,
                 isScrollControlled: true,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
@@ -736,17 +685,13 @@ class _HomePageState extends State<HomePage> {
               child: FittedBox(
                 child: Row(
                   children: [
-                    
                     Image.asset(
                       imageAsset,
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(
-                        width: 10), 
-
-                    // Title and Description
+                    const SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -768,8 +713,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     const SizedBox(width: 20),
-
-                    
                     const Icon(
                       Icons.arrow_forward_ios,
                       size: 24,
@@ -847,17 +790,15 @@ class _HomePageState extends State<HomePage> {
               child: FittedBox(
                 child: Row(
                   children: [
-                    // Image on the left
                     Image.asset(
                       imageAsset,
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(
-                        width: 10), // Space between the image and text
+                    const SizedBox(width: 10),
 
-                    // Title and Description
+                    
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -880,7 +821,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(width: 20),
 
-                    // Right-side arrow icon
+                    
                     const Icon(
                       Icons.arrow_forward_ios,
                       size: 24,
@@ -897,7 +838,6 @@ class _HomePageState extends State<HomePage> {
   }
 
 // Bottom Sheet method for longButtons
-
   void _showBottomSheet(BuildContext context, Widget contentWidget) {
     showModalBottomSheet(
       shape: const RoundedRectangleBorder(
@@ -959,7 +899,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   //Button for plymouth Approved
-
   Widget _buildButton2(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1004,7 +943,6 @@ class _HomePageState extends State<HomePage> {
   }
 
 //Button for Victoria Approved
-
   Widget _buildButton3(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1049,7 +987,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   //Button for CSSE Circle
-
   Widget _buildButton4(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1093,7 +1030,6 @@ class _HomePageState extends State<HomePage> {
   }
 
 //Button for CCSL Circle
-
   Widget _buildButton5(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1137,7 +1073,6 @@ class _HomePageState extends State<HomePage> {
   }
 
 //Button for FOSS Community
-
   Widget _buildButton6(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1185,13 +1120,13 @@ class DepartmentButton extends StatelessWidget {
   final String imageAsset;
   final String title;
   final String description;
-  final VoidCallback onTap; // Callback for onTap behavior
+  final VoidCallback onTap;
 
   const DepartmentButton({
     required this.imageAsset,
     required this.title,
     required this.description,
-    required this.onTap, // Pass the onTap callback as a parameter
+    required this.onTap,
     Key? key,
   }) : super(key: key);
 
@@ -1201,7 +1136,7 @@ class DepartmentButton extends StatelessWidget {
       imageAsset: imageAsset,
       title: title,
       description: description,
-      onTap: onTap, // Pass the onTap callback to the internal widget
+      onTap: onTap,
     );
   }
 
@@ -1209,7 +1144,7 @@ class DepartmentButton extends StatelessWidget {
     required String imageAsset,
     required String title,
     required String description,
-    required VoidCallback onTap, // Add the onTap callback as a parameter
+    required VoidCallback onTap,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -1230,7 +1165,7 @@ class DepartmentButton extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: onTap, // Use the onTap callback
+            onTap: onTap,
             borderRadius: BorderRadius.circular(16),
             splashColor: const Color.fromARGB(255, 255, 255, 255),
             child: Column(
@@ -1276,6 +1211,68 @@ class DepartmentButton extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ThemedDropdown extends StatelessWidget {
+  final String label;
+  final String value;
+  final List<String> items;
+  final void Function(String?) onChanged;
+
+  const ThemedDropdown({
+    required this.label,
+    required this.value,
+    required this.items,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    return FittedBox(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: themeProvider.currentTheme.textTheme.bodyText1?.color,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Container(
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: DropdownButton<String>(
+                value: value,
+                onChanged: onChanged,
+                items: items.map<DropdownMenuItem<String>>((String item) {
+                  return DropdownMenuItem<String>(
+                    value: item,
+                    child: Text(
+                      item,
+                      style: TextStyle(
+                        color: themeProvider
+                            .currentTheme.textTheme.bodyText1?.color,
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

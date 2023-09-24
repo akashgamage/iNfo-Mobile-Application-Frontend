@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../theme_provider.dart';
 
 class NotificationPage extends StatelessWidget {
-  // Sample list of notifications
   final List<String> notifications = [
     'Notification 1',
     'Notification 2',
@@ -15,18 +17,17 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+      backgroundColor: themeProvider.currentTheme.scaffoldBackgroundColor,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Notifications',
           style: TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontWeight: FontWeight.bold,
+            color: themeProvider.currentTheme.textTheme.bodyText1?.color,
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        iconTheme:
-            IconThemeData(color: const Color.fromARGB(255, 255, 255, 255)),
+        backgroundColor: themeProvider.currentTheme.scaffoldBackgroundColor,
       ),
       body: ListView.builder(
         itemCount: notifications.length,
@@ -34,7 +35,7 @@ class NotificationPage extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Card(
-              color: const Color.fromARGB(255, 224, 242, 255),
+              color: themeProvider.currentTheme.backgroundColor,
               margin: const EdgeInsets.symmetric(horizontal: 16),
               child: ListTile(
                 leading: Image.asset(
@@ -46,12 +47,20 @@ class NotificationPage extends StatelessWidget {
                 title: Padding(
                   padding: const EdgeInsets.only(bottom: 4.0),
                   child: Text(notifications[index],
-                      style: const TextStyle(color: Colors.black)
-                          .copyWith(fontWeight: FontWeight.w700)),
+                      style: TextStyle(
+                        color: themeProvider
+                            .currentTheme.textTheme.bodyText1?.color,
+                      ).copyWith(fontWeight: FontWeight.w700)),
                 ),
-                subtitle: const Text('This is a sample notification.'),
+                subtitle: Text(
+                  'This is a sample notification.',
+                  style: TextStyle(
+                    color:
+                        themeProvider.currentTheme.textTheme.bodyText1?.color,
+                  ),
+                ),
                 onTap: () {
-                  // Handle notification tap here if needed
+                  
                 },
               ),
             ),

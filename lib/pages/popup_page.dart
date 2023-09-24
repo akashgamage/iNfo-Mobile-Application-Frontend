@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../theme_provider.dart';
 
 class PopupPage extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String description;
   final String buttonLabel;
-  final VoidCallback?
-      onButtonPressed; // Add a parameter for the button callback
-
+  final VoidCallback? onButtonPressed;
   const PopupPage({
     super.key,
     required this.imageUrl,
     required this.title,
     required this.description,
     required this.buttonLabel,
-    this.onButtonPressed, // Include the button callback
+    this.onButtonPressed,
   });
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final backgroundColor = themeProvider.currentTheme.scaffoldBackgroundColor;
     return Dialog(
+      backgroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
       ),
@@ -39,9 +42,11 @@ class PopupPage extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        color: themeProvider
+                            .currentTheme.textTheme.bodyText1?.color,
                       ),
                     ),
                   ),
@@ -49,24 +54,34 @@ class PopupPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 8.0, vertical: 16.0),
-                    child: Text(description),
+                    child: Text(
+                      description,
+                      style: TextStyle(
+                        color: themeProvider
+                            .currentTheme.textTheme.bodyText1?.color,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       ElevatedButton(
-                        onPressed:
-                            onButtonPressed, // Use the provided button callback
+                        onPressed: onButtonPressed,
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             side:
-                                const BorderSide(color: Colors.white, width: 2),
+                                const BorderSide(color: Colors.white, width: 1),
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+                          backgroundColor: Color.fromARGB(255, 0, 0, 0),
                         ),
-                        child: Text(buttonLabel),
+                        child: Text(
+                          buttonLabel,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ],
                   ),

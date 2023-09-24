@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
 import 'package:info_mobile_application/pages/speech_bubble.dart';
+import 'package:provider/provider.dart';
+
+import '../theme_provider.dart';
 
 class ChatMessage {
   final String text;
@@ -143,19 +146,17 @@ class _ChatbotPageState extends State<ChatbotPage> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+      backgroundColor: themeProvider.currentTheme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        centerTitle: true,
-        title: const Text(
+        title: Text(
           'N Chat',
           style: TextStyle(
-            color: Color.fromARGB(255, 0, 0, 0),
-            fontWeight: FontWeight.bold,
+            color: themeProvider.currentTheme.textTheme.bodyText1?.color,
           ),
         ),
-        iconTheme:
-            IconThemeData(color: const Color.fromARGB(255, 255, 255, 255)),
+        backgroundColor: themeProvider.currentTheme.scaffoldBackgroundColor,
       ),
       body: Column(
         children: [
@@ -210,7 +211,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
 
     return Padding(
       padding:
-          const EdgeInsets.symmetric(vertical: 4.0), // Add vertical padding
+          const EdgeInsets.symmetric(vertical: 4.0), 
       child: Column(
         crossAxisAlignment: alignment,
         children: [
@@ -246,7 +247,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
       ),
       margin: const EdgeInsets.all(16.0),
       padding: const EdgeInsets.symmetric(
-          horizontal: 16.0), // Add horizontal padding
+          horizontal: 16.0), 
       child: Row(
         children: [
           Flexible(
