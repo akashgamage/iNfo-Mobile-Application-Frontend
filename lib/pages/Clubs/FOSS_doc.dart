@@ -7,7 +7,7 @@ class FOSSDoc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.8, 
+      height: MediaQuery.of(context).size.height * 0.8,
       // color: Colors.white,
       padding: const EdgeInsets.all(18),
       decoration: const BoxDecoration(
@@ -28,12 +28,11 @@ class FOSSDoc extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  'assets/images/foss.png', 
-                  width: 100, 
-                  height: 100, 
+                  'assets/images/foss.png',
+                  width: 100,
+                  height: 100,
                 ),
-                const SizedBox(
-                    width: 8), 
+                const SizedBox(width: 8),
                 const Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(right: 10, left: 30, top: 20),
@@ -87,7 +86,6 @@ class FOSSDoc extends StatelessWidget {
                 ],
               ),
             ),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -124,9 +122,10 @@ class FOSSDoc extends StatelessWidget {
   }
 
   _launchWebsite() async {
-    const url =
-        'https://www.fossnsbm.org'; 
+    const url = 'https://www.fossnsbm.org/events/sfd-2023';
+    // ignore: deprecated_member_use
     if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
       await launch(url);
     } else {
       throw 'Could not launch $url';

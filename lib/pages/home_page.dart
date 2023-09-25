@@ -774,9 +774,11 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(
                           bottom: 40, left: 8, right: 8, top: 40),
                       children: [
-                        _buildButton4(context, 'CSSE Circle'),
-                        _buildButton5(context, 'CSSL GenZ NSBM'),
                         _buildButton6(context, 'FOSS Community'),
+                        _buildButton5(context, 'CSSL GenZ NSBM'),
+                        _buildButton4(context, 'CSSE Circle'),
+                        
+                        
                       ],
                     ),
                   );
