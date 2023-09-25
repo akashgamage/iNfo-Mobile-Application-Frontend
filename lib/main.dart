@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:info_mobile_application/pages/login_page.dart';
-import 'package:info_mobile_application/pages/nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:info_mobile_application/theme_provider.dart';
 

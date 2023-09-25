@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../theme_provider.dart';
 import '../login_page.dart';
 
@@ -26,8 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
         title: Text(
           'Settings',
           style: TextStyle(
-            color: themeProvider.currentTheme.textTheme.bodyText1
-                ?.color, 
+            color: themeProvider.currentTheme.textTheme.bodyLarge?.color,
           ),
         ),
         backgroundColor: themeProvider.currentTheme.scaffoldBackgroundColor,
@@ -69,7 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     onChanged: (value) {
                       setState(() {
                         _darkModeEnabled = value;
-                        
+
                         themeProvider.toggleTheme(_darkModeEnabled);
                       });
                     },
@@ -131,14 +131,14 @@ class _SettingsPageState extends State<SettingsPage> {
       child: ListTile(
         leading: Icon(
           icon,
-          color: themeProvider.currentTheme.textTheme.bodyText1?.color,
+          color: themeProvider.currentTheme.textTheme.bodyLarge?.color,
         ),
         title: Align(
           alignment: Alignment.centerLeft,
           child: Text(
             title,
             style: TextStyle(
-              color: themeProvider.currentTheme.textTheme.bodyText1?.color,
+              color: themeProvider.currentTheme.textTheme.bodyLarge?.color,
               fontSize: 18,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w500,
@@ -153,7 +153,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Icon(
                 Icons.arrow_forward_ios,
                 size: 16,
-                color: themeProvider.currentTheme.textTheme.bodyText1?.color,
+                color: themeProvider.currentTheme.textTheme.bodyLarge?.color,
               ),
           ],
         ),
@@ -205,9 +205,11 @@ class _SettingsPageState extends State<SettingsPage> {
             ElevatedButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut();
-                Navigator.pushReplacement(
+                Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),
+                  (route) =>
+                      false, // This will remove all routes from the stack.
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -229,7 +231,7 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
   }
-  
+
   Widget _buildLogoutButton() {
     return ElevatedButton(
       onPressed: () {
@@ -242,9 +244,9 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         backgroundColor: const Color.fromARGB(255, 7, 57, 97),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: const Text(
+      child: const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Text(
           'Logout',
           style: TextStyle(
             fontSize: 16,
